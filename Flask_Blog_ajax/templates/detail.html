@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail{% endblock %}
+
+{% block  head %}
+     <link rel="stylesheet" href="{{ url_for('static',filename='CSS/detail.css') }}">
+{% endblock %}
+
+{% block main %}
+    <h3 class="page-title">{{ question.title }}</h3>
+    <p class="question-info">
+         <span>Author:{{ question.author.username }}</span>
+         <span>Time:{{ question.create_time }}</span>
+    </p>
+    <hr>
+    <p class="question-content">{{ question.content }}</p>
+    <hr>
+    <h4>Comment: (0)</h4>
+    <form action="{{ url_for('add_comment') }}" method="post">
+        <div class="form-group">
+            <input name="comment-content" type="text" class="form-control" placeholder="Comment">
+            <input type="hidden" name="question_id" value="{{ question.id }}">
+        </div>
+        <div class="form-group" style="text-align: right;">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <form>
+    <ul class="comment-list">
+        {% for comment in question.comments %}
+            <li>
+               <div class="user-info">
+                  <img src="{{ url_for('static',filename='image/img1.jpg') }}" alt="" class="avatar">
+                  <span class="username">{{ comment.author.username }}</span>
+                  <span class="create_time">{{ comment.create_time }}</span>
+               </div>
+               <p class="comment-content">{{ comment.content }}</p>
+               <a href="javascript:;" comment-id="{{ comment.id }}">delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </form>
+    <script type="text/javascript" src="/static/js/jquery-3.4.1.min.js"></script>
+     <script>
+         $("a").click(
+             function (){
+                 var data = {
+                     comment_id: $(this).attr("comment-id")
+                 };
+                 var req_json = JSON.stringify(data);
+                 $.ajax({
+                     url: "/comment_del",
+                     type: "post",
+                     data: req_json,
+                     contentType: "application/json",
+                     dataType: "json",
+                     success: function (resp) {
+                         if(resp.code == 0){
+                             location.href = "/";
+                         }
+                     }
+                 })
+             }
+         )
+     </script>
+{% endblock %}
