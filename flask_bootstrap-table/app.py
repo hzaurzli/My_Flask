@@ -7,7 +7,7 @@ app = Flask(__name__)
 users = list(range(100))
 
 
-def get_users(offset=0, per_page=10):
+def get_users(offset, per_page):
     return users[offset: offset + per_page]
 
 
@@ -16,7 +16,7 @@ def index():
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
     total = len(users)
-    pagination_users = get_users(offset=offset, per_page=per_page)
+    pagination_users = get_users(offset=0, per_page=20)
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
     return render_template('index.html',
