@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>学生信息</title>
+    </head>
+
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>语文</th>
+                    <th>数学</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for name, info in users.items() %}
+                <tr>
+                    <td>
+                        <a href="/modify?name={{ name }}">{{ name }}</a>
+                    </td>
+                    <td>{{ info.gender }}</td>
+                    <td>{{ info.chinese }}</td>
+                    <td>{{ info.math }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+</html>
