@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from flask_paginate import Pagination
 
-engine = create_engine("mysql+pymysql://root:qwer1234@127.0.0.1/flask")
+engine = create_engine("mysql+pymysql://root:sky15887182979/mimimi")
 DBSession = sessionmaker(bind=engine)
 
 app = Flask(__name__)
