@@ -1,0 +1,12 @@
+#crate db
+CREATE DATABASE testingdb;
+use testingdb;
+
+#create table
+CREATE TABLE employee(id INT(50),name VARCHAR(100),email VARCHAR(100),phone INT(50));
+
+#insert data
+INSERT INTO employee
+->(id,name,email,phone)
+->VALUES
+->("1","dsda","dadwada","213123");
