@@ -21,7 +21,7 @@
 <table class="table table-borderless">
                                 <tr class="d-flex">
                                     <td class="col-sm-2" style="border: none;">repeat name:</td>
-                                    <td class="col-sm-1" style="border: none;">{{ data.id }}</td>
+                                    <td class="col-sm-1" style="border: none;">{{ data }}</td>
                                     <td class="col-sm-6" style="border: none;"></td>
                                 </tr>
 </table>
@@ -33,8 +33,8 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#table').bootstrapTable({
-            url: '/page_1/{{ data.id }}',  // 请求数据源的路由
+        $('#table_1').bootstrapTable({
+            url: '/page_1/{{ data }}',  // 请求数据源的路由
             dataType: "json",
             pagination: true, //前端处理分页
             singleSelect: false,//是否只能单选

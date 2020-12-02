@@ -25,8 +25,6 @@ def infos():
         info = request.values
         limit = info.get('limit', 10)  # 每页显示的条数
         offset = info.get('offset', 0)  # 分片数，(页码-1)*limit，它表示一段数据的起点
-        print('get', limit)
-    print('get  offset', offset)
     return jsonify({'total': len(data), 'rows': data[int(offset):(int(offset) + int(limit))]})
     # 注意total与rows是必须的两个参数，名字不能写错，total是数据的总长度，rows是每页要显示的数据,它是一个列表
     # 前端根本不需要指定total和rows这俩参数，他们已经封装在了bootstrap table里了
@@ -46,7 +44,9 @@ def page_1(id):
         d['name'] = choice(names) + choice(names)  # 随机选取汉字并拼接
         d['price'] = '10'
         data.append(d)
-    return render_template("one_repeat.html",data=data)
+        dat = data[i - 1]['id']
+        print(dat)
+    return render_template("one_repeat.html",data=dat)
 
 
 if __name__ == '__main__':
