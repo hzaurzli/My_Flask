@@ -1,0 +1,307 @@
+@charset 'UTF-8';
+
+/**
+ *
+ * @authors    ${winlily}
+ * @email    ${winlily@foxmail.com}
+ * @date    2017-05-04 20:08:48
+ * @version $Id$
+ */
+
+
+/* ----------------------------------自定义的公共样式部分/begin---------------------------------- */
+
+
+/* 标题设置/字体加粗 */
+
+.text-strong {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* 设置panel标题左边样式 */
+
+.panel-title {
+    margin-bottom: 5px;
+    padding-left: 10px;
+    border-left: 5px solid #17B55D;
+}
+
+
+/* 自定义颜色设置 */
+
+._1295d8 {
+    /* 蓝色 */
+    color: #1295d8 !important;
+}
+
+.bg_1295d8 {
+    background-color: #1295d8 !important;
+}
+
+._ffb641 {
+    /* 黄色 */
+    color: #ffb641 !important;
+}
+
+.bg_ffb641 {
+    background-color: #ffb641 !important;
+}
+
+._29a69c {
+    /* 绿色 */
+    color: #29a69c !important;
+}
+
+.bg_29a69c {
+    background-color: #29a69c !important;
+}
+
+._df4d69 {
+    /* 红色 */
+    color: #df4d69 !important;
+}
+
+.bg_df4d69 {
+    background-color: #df4d69 !important;
+}
+
+
+/* 下三角 */
+
+.register-upload-panel .triangle {
+    position: absolute;
+    top: 35px;
+    left: 220px;
+}
+
+.register-info-panel .triangle {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    margin-left: -10px;
+}
+
+.triangle::before {
+    display: block;
+    width: 0;
+    height: 0;
+    content: '';
+    border: 10px solid;
+}
+
+.triangle_1295d8::before {
+    border-color: #1295d8 transparent transparent transparent;
+}
+
+.triangle_ffb641::before {
+    border-color: #ffb641 transparent transparent transparent;
+}
+
+.triangle_29a69c::before {
+    border-color: #29a69c transparent transparent transparent;
+}
+
+.triangle_df4d69::before {
+    border-color: #df4d69 transparent transparent transparent;
+}
+
+
+/* ----------------------------------自定义的公共样式部分/end---------------------------------- */
+
+body {
+    /*font-family: 'Helvetica Neue', helvetica, 'lucida grande', 'lucida sans unicode', lucida, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif;*/
+    font-family:"Times New Roman",Georgia,Serif;
+    line-height: 24px;
+    position: relative;
+    background-color: #fff;
+}
+
+
+/* back-top 返回顶部按钮 */
+
+.back-top {
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    display: none;
+    width: 45px;
+    height: 45px;
+    background-color: #17B55D;
+}
+
+.back-top img {
+    max-width: 45px;
+    height: auto;
+    padding: 10px;
+}
+
+
+/* navbar 导航*/
+
+.navbar.navbar-default {
+    margin-bottom: 0;
+    /*background-color: #1295d8;*/
+    /*position: relative;*/
+}
+
+.navbar-brand {
+    padding: 0 15px;
+}
+
+.nav.navbar-nav.navbar-right li button {
+    background-color: #ffb641;
+}
+
+.nav.navbar-nav.navbar-right li button:hover {
+    background-color: #ff9f00 !important;
+}
+
+.nav.navbar-nav.navbar-right li:first-child {
+    margin-right: 10px;
+}
+
+.carousel-indicators {
+    bottom: 0;
+}
+
+.carousel-indicators li {
+    border: none;
+    background-color: #ffb641;
+}
+
+.carousel-indicators .active {
+    background-color: #ff9f00 !important;
+}
+
+
+/* carousel轮播*/
+
+
+/* 主体内容 */
+
+.main-content {
+    margin-top: 60px;
+}
+
+/* footer页脚 */
+
+.footer {
+    padding: 20px 0;
+    color: #666;
+    background-color: #F5F5F5;
+}
+
+.footer ul {
+    display: inline-block;
+    margin: 20px 25px;
+}
+
+.footer ul a {
+    color: #666;
+}
+
+.footer ul a:hover {
+    color: #ccc;
+}
+
+.footer .text-center img {
+    max-width: 18%;
+    height: auto;
+    margin: 20px;
+}
+
+.footer .text-center p {
+    margin: 0;
+}
+
+/*首页/会议注册/注册流程/信息提示 */
+
+.info-notification .panel-body {
+    color: #999;
+}
+
+.info-notification .panel-body ul li p:first-child {
+    font-weight: bold;
+}
+
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color:#FFFFFF;
+  font-size: 36px;
+}
+
+.navbar-brand>img {
+  padding: 7px 14px;
+}
+
+/*
+.carousel-control {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 50%;
+    margin-top: -35px;
+    line-height: 70px;
+    border-radius: 50%;
+    color: inherit;
+    background: #17B55D;
+    border: 0;
+    opacity: 0.5;
+    text-shadow: none;
+    z-index: 5;
+    color: #fff;
+    -webkit-transition: all 0.2s ease-in-out 0s;
+    -o-transition: all 0.2s ease-in-out 0s;
+    transition: all 0.2s ease-in-out 0s;
+}*/
+
+.carousel-box {
+    height: 678px;
+    /*margin-top: 50px;*/
+    background: url(../img/carousel_bg.png) no-repeat;
+}
+.carousel-control.left {
+    background-image: none;
+}
+.carousel-control.right {
+    background-image: none;
+}
+.carousel-indicators {
+    left: 0;
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    background: url(../img/carousel-indicators_bg.png) center no-repeat;
+}
+.carousel-indicators li,
+.carousel-indicators li.active {
+    width: 20px;
+    height: 20px;
+    margin: 15px 5px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, .5);
+}
+.carousel-indicators li.active {
+    width: 20px;
+    height: 20px;
+    margin: 15px 5px;
+    background-color: #fff !important;
+}
+.carousel-box #carousel-example-generic {
+    height: 678px;
+}
+.carousel-box .carousel-inner .img-responsive {
+    width: auto;
+    height: 518px;
+    margin: 0 auto;
+    margin-top: 55px;
+}
+
+.navbar, .navbar.navbar-default {
+    background-color: #17B55D;
+    color: rgba(255,255,255, 1) !important;
+}
