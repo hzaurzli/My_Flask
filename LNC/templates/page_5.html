@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+<head>
+    <title>Graph</title>
+</head>
+
+<body>
+{% block content %}
+    {% for myid in myids.items %}
+        <a>{{ myid.fullname }}</a>
+    {% endfor %}
+
+{% endblock %}
+</body>
