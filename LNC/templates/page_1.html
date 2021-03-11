@@ -1,0 +1,126 @@
+{% extends "index.html" %}
+
+<head>
+    <title>Graph</title>
+</head>
+
+<body>
+{% block content %}
+
+       <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About our lab</h2>
+          <p>Sex evolution and develpoment</p>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
+              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <a href="#" class="btn-learn-more">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div id="container" style="width: 550px; height: 400px; margin: 0 auto"></div>
+<script language="JavaScript">
+$(document).ready(function() {
+   var chart = {
+      type: 'bar'
+   };
+   var title = {
+      text: '小潤澤技能条'
+   };
+   var subtitle = {
+      text: ''
+   };
+   var xAxis = {
+      categories: ['HTML/CSS', 'Python', 'R', 'C', '机器学习','统计建模','NGS'],
+      title: {
+         text: null
+      }
+   };
+   var yAxis = {
+      min: 0,
+	  max:100,
+      title: {
+         text: '能力分数',
+         align: 'high'
+      },
+      labels: {
+         overflow: 'justify'
+      }
+   };
+   var tooltip = {
+      valueSuffix: ' score'
+   };
+   var plotOptions = {
+      bar: {
+         dataLabels: {
+            enabled: true
+         }
+      }
+   };
+   var legend = {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'top',
+      x: 10,
+      y: 35,
+      floating: true,
+      borderWidth: 1.0,
+      backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+      shadow: true
+   };
+   var credits = {
+      enabled: false
+   };
+
+   var series= [{
+         name: '基础知识',
+            data: [60, 73, 75, 55, 66, 70, 78]
+        }, {
+            name: '熟练情况',
+            data: [53, 68, 70, 41, 60, 62, 75]
+        }, {
+            name: '实际应用',
+            data: [58, 70, 72, 46, 62, 65, 80]
+	    }
+   ];
+
+   var json = {};
+   json.chart = chart;
+   json.title = title;
+   json.subtitle = subtitle;
+   json.tooltip = tooltip;
+   json.xAxis = xAxis;
+   json.yAxis = yAxis;
+   json.series = series;
+   json.plotOptions = plotOptions;
+   json.legend = legend;
+   json.credits = credits;
+   $('#container').highcharts(json);
+
+});
+</script>
+
+{% endblock %}
+</body>
