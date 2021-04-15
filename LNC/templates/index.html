@@ -47,6 +47,9 @@
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://code.highcharts.com/highcharts.js"></script>
 
+    <script src="/static/dist/js/jquery.tablesorter.min.js"></script>
+    <script src="/static/dist/js/jquery.tablesorter.widgets.min.js"></script>
+
   <!-- Template Main CSS File -->
   <link href="/static/css/style.css" rel="stylesheet">
 </head>
@@ -65,8 +68,7 @@
               <li><a href="{{ url_for('page_1') }}" onclick="showParts();">Browse</a></li>
               <li><a href="{{ url_for('page_2') }}">Search</a></li>
               <li><a href="{{ url_for('page_3') }}">User-guide</a></li>
-              <li><a href="#">Download</a></li>
-              <li><a href="">Contact</a></li>
+              <li><a href="{{ url_for('page_6') }}">Contact</a></li>
               </li>
             </ul>
           </nav>
@@ -86,29 +88,27 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>About our lab</h2>
-          <p>Sex evolution and develpoment</p>
+          <h2>About me</h2>
+          <p>Personal skills</p>
         </div>
 
         <div class="row content">
           <div class="col-lg-6">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
+              A data worker who are interested in Machine learning , NGS , Mathematical model and Database
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+              <li><i class="ri-check-double-line"></i> Mathematical modeling</li>
+              <li><i class="ri-check-double-line"></i> Next-generation sequencing technology</li>
+              <li><i class="ri-check-double-line"></i> Programming</li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum.
+              Interested in statistical modeling and machine learning, Currently mainly responsible for data analysis of RNA-seq and scRNA-seq.
+                I have a strong interest in analysis methods and software algorithms in data analysis and friends with the same interests are welcome to discuss together
+
             </p>
-            <a href="#" class="btn-learn-more">Learn More</a>
           </div>
         </div>
 

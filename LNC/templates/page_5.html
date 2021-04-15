@@ -6,9 +6,14 @@
 
 <body>
 {% block content %}
+    <div align="center">
     {% for myid in myids.items %}
-        <a>{{ myid.fullname }}</a>
+        <p align="right"><h3>
+        If you like {{ myid.fullname }}, you can click this address:
+        <br>
+        If you have any questions, you can comment this article.
+    </h3></p>
     {% endfor %}
-
+    </div>
 {% endblock %}
 </body>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>jQuery showLoading.js: Loading Indicator Demos</title>
+   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+   <link href="/static/css/showLoading.css" rel="stylesheet" media="screen" />
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+   <script type="text/javascript" src="/static/js/jquery.showLoading.js"></script>
+   <style type="text/css">
+body { font-family:'Roboto';}
+	a {
+	  color: blue;
+	  cursor:pointer;
+          text-decoration: underline;
+	}
+h1 { margin:150px auto 50px auto;}
+        div.instructions_container {
+	   float: left;
+           width: 350px;
+           margin-right: 50px;
+        }
+	div#activity_pane {
+           float:left;
+           width: 450px;
+           height: 330px;
+           border: 1px solid #CCCCCC;
+           background-color: #EEEEEE;
+ 	   padding-top: 200px;
+	   text-align: center;
+
+        }
+        div.example_links
+         .link_category {
+           margin-bottom: 15px;
+        }
+	.loading-indicator-bars {
+		background-image: url('/static/images/loading-bars.gif');
+		width: 150px;
+	}
+
+   </style>
+   <script type="text/javascript">
+
+	jQuery(document).ready(
+		function() {
+		  jQuery('#loading').click(
+			function() {
+				jQuery('#activity_pane').showLoading();
+			}
+		  );
+		}
+	);
+   </script>
+  </head>
+<body>
+<div>
+    <p>
+        Here is the page of Dynamic programming
+    </p>
+</div>
+<br>
+<section id="activity_pane">
+      <div>
+        <form method="post">
+                   <div class="div-center" align="center" style="float:right">
+                       <label>seq_1:</label><input type="text" name="seq_1" id="seq_1"><br>
+                       <label>seq_2:</label><input type="text" name="seq_2" id="seq_2"><br>
+
+                         <div class="instructions_container">
+                            <div class="example_links">
+	                           <div class="link_category">
+                                   <div class="link">
+{#                                       <a class="loading-default">Show default loading indicator</a>#}
+                                       <button id="loading">Submit</button><br>
+	                               </div>
+                               </div>
+                            </div>
+                         </div>
+                   </div>
+       </form>
+    </div>
+
+</section>
+</body>
+</html>
