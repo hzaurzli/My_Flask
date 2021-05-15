@@ -1,0 +1,14 @@
+div#activity_pane {
+           float:left;
+           width: 450px;
+           height: 330px;
+           border: 1px solid #CCCCCC;
+           background-color: #EEEEEE;
+ 	   padding-top: 200px;
+	   text-align: center;
+        }
+
+    .loading-indicator-bars {
+		background-image: url('/static/images/loading.gif');
+		width: 150px;
+	}
