@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/static/css/layui.css"  media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+<table class="layui-table" lay-data="{height:305, url:'http://127.0.0.1:5000/aaa', page:true, id:'test2', skin: 'row', even: true}">
+  <thead>
+    <tr>
+      <th lay-data="{checkbox:true}"></th>
+      <th lay-data="{field:'id', width:80, sort: true}">ID</th>
+      <th lay-data="{field:'fullname', width:80 , templet: addLink }">用户名</th>
+      <th lay-data="{field:'position', width:80, sort: true}">性别</th>
+      <th lay-data="{field:'office'}">城市</th>
+      <th lay-data="{field:'startdate'}">签名</th>
+      <th lay-data="{field:'salary', sort: true}">积分</th>
+    </tr>
+  </thead>
+</table>
+
+<script src="/static/layui.js" charset="utf-8"></script>
+<script>
+function addLink(d) {
+　　var addLink = d.fullname;
+   if ('' == addLink || null == addLink || undefined == addLink) {
+        return '';
+   }
+   if (addLink.length > 0) {
+        return '<a class="layui-table-link" href="https://www.layui.com/doc/modules/table.html#templet" lay-event="link">' + d.fullname + '</a>';
+   }
+}
+</script>
+
+
+{#<script type="text/html" id="fullnameTpl">#}
+{#  <a href="https://www.layui.com/">{{ d.fullname }}</a>#}
+{#</script>#}
+
+<script src="/static/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述 JS 路径需要改成你本地的 -->
+<script>
+layui.use('table', function(){
+  var table = layui.table;
+});
+</script>
+</body>
+</html>
+
