@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Python Flask SQLAlchemy Pagination with Search LIKE, Equals, IN, AND and OR - Datatable</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>jQuery showLoading.js: Loading Indicator Demos</title>
+{#   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">#}
+   <link href="/static/css/showLoading.css" rel="stylesheet" media="screen" />
+   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   <script type="text/javascript" src="/static/js/jquery.showLoading.js"></script>
+   <style type="text/css" src="/static/css/loadinggif.css"></style>
+   <script type="text/javascript">
+	jQuery(document).ready(
+		function() {
+		  jQuery('[id=loading]').click(
+			function() {
+				jQuery('#activity_pane').showLoading();
+			}
+		  );
+		}
+	);
+	{##同样的id调用同一个jQuery事件，'[id=loading]'#}
+   </script>
+</head>
+<body>
+
+ <form method="post">
+       <div>
+           <input type="text" name="tag" id="tag">
+       </div>
+           <button id="loading">Submit</button><br>
+ </form>
+
+
+ <table id="activity_pane" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th><input type="checkbox" onclick="checkAll(this)"></th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+  {% for employee in employees.items %}
+  <tr>
+                <td><input type="checkbox" name="">{{ employee.id}}</td>
+                <td>{{ employee.fullname}}</td>
+                <td>{{ employee.position}}</td>
+                <td>{{ employee.office}}</td>
+                <td>{{ employee.age}}</td>
+                <td>{{ employee.startdate}}</td>
+                <td>{{ employee.salary}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+  </table>
+
+   <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    {% if employees.has_prev %}
+                      <li class="page-item"> <a class="page-link" id="loading" href="{{ url_for('index', page=employees.prev_num) }}">Previous</a></li>
+                    {% else %}
+                      <li class="page-item"><a class="page-link btn disabled" href="#">Previous</a></li>
+                    {% endif %}
+
+     {% for page in employees.iter_pages(left_edge=3, right_edge=3) %}
+     {% if page %}
+
+      {% if page==employees.page %}
+       <li class="page-item active"><a class="page-link" id="loading" href="{{ url_for('index', page=page) }}">{{ page }}</a></li>
+      {% else %}
+       <li class="page-item"><a class="page-link" id="loading" href="{{ url_for('index', page=page) }}">{{ page }}</a></li>
+      {% endif %}
+
+     {% else %}
+      <li class="page-item disabled" id="example_ellipsis"><a href="#" class="page-link">…</a></li>
+     {% endif %}
+     {% endfor %}
+
+                    {% if employees.has_next %}
+                      <li class="page-item"> <a class="page-link" id="loading" href="{{ url_for('index', page=employees.next_num) }}">Next</a></li>
+                    {% else %}
+                      <li class="page-item"><a class="page-link btn disabled" href="#">Next</a></li>
+                    {% endif %}
+
+                </ul>
+    </nav>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+</body>
+</html>
