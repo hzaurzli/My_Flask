@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+</head>
+
+<body>
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>fullname</th>
+                <th>position</th>
+                <th>office</th>
+                <th>age</th>
+                <th>startdate</th>
+                <th>salary</th>
+            </tr>
+        </thead>
+    </table>
+
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": "http://127.0.0.1:5000/jsondata/{{ tag }}",
+        "columns": [
+            { "data": "id" },
+            { "data": "fullname" },
+            { "data": "position" },
+            { "data": "office" },
+            { "data": "age" },
+            { "data": "startdate" },
+            { "data": "salary" }
+        ]
+    } );
+} );
+</script>
+</body>
+</html>
