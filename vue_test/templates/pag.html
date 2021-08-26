@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui@2.15.3/lib/index.js"></script>
+
+    <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+<template>
+  <div class="block">
+    <span class="demonstration">直接前往</span>
+    <el-pagination
+      @size-change="handleSizeChange"
+      @current-change="handleCurrentChange"
+      :current-page.sync="currentPage3"
+      :page-size="100"
+      layout="prev, pager, next, jumper"
+      :total="1000">
+    </el-pagination>
+  </div>
+      <p>{{ message }}</p>
+</template>
+</div>
+</body>
+<script>
+ var Main = {
+    methods: {
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(pag) {
+        console.log(`当前页: ${pag}`);
+        var bb = pag;
+         axios({
+                methods: 'get',
+                url:'/json/',
+                params: { 'first': bb }
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) { // 请求失败处理
+                    // console.log(error);
+                });
+      }
+    },
+    data() {
+      return {
+          message: 'Hello Vue.js!',
+          currentPage1: 5,
+          currentPage2: 5,
+          currentPage3: 5,
+          currentPage4: 4
+      };
+    },
+      {#mounted (){#}
+      {#      axios({#}
+      {#          methods: 'get',#}
+      {#          url:'/json/',#}
+      {#          params: { 'first':'aa' }#}
+      {#      })#}
+      {#          .then(function (response) {#}
+      {#              console.log(response);#}
+      {#          })#}
+      {#          .catch(function (error) { // 请求失败处理#}
+      {#              // console.log(error);#}
+      {#          });#}
+      {#  }#}
+ };
+
+ axios.interceptors.request.use(function (config) {
+     console.log("aa");
+     return config;
+     }, function (error) {
+     return Promise.reject(error);
+ });
+var Ctor = Vue.extend(Main);
+new Ctor().$mount('#app')
+
+</script>
+</html>
