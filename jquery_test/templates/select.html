@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<body>
+     <div>
+            <div>
+                <!-- 下拉框 -->
+                <select id="sel">
+                    <option>广州</option>
+                    <option>深圳</option>
+                    <option>山东</option>
+                    <option>北京</option>
+                </select>
+                   <button onclick="ajax_test()">choose</button>
+                   <button onclick="down_test()">download</button>
+            </div>
+    </div>
+    <p id="test"></p>
+</body>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+    function test() {
+        var sel=$("#sel option:selected").text();
+        console.log(sel);
+        var my_data = { "fname": sel };
+      $.ajax({
+              url: "/select/", //文件位置
+              type: "GET", //请求方式为get
+              dataType: "", //返回数据格式
+              data: my_data ,
+              success: function (dat) { //请求成功完成后要执行的方法
+                  console.log(typeof (dat));
+                  var aa = dat;
+                  console.log(aa);
+                  {#alert(aa);#}
+                  var str = '<div>place:' + sel + '</div>';
+                  $('#test').html(str);
+              }
+          })
+    }
+    test();
+
+    function ajax_test() {
+        var sel=$("#sel option:selected").text();
+        console.log(sel);
+        var my_data = { "fname": sel };
+      $.ajax({
+              url: "/select/", //文件位置
+              type: "GET", //请求方式为get
+              dataType: "", //返回数据格式
+              data: my_data ,
+              success: function (dat) { //请求成功完成后要执行的方法
+                  console.log(typeof (dat));
+                  var aa = dat;
+                  console.log(aa);
+                  {#alert(aa);#}
+                  var str = '<div>place:' + sel + '</div>';
+                  $('#test').html(str);
+              }
+          })
+    }
+  	{#ajax_test(); //执行函数#}
+    function down_test() {
+        var sel=$("#sel option:selected").text();
+        console.log(sel);
+    }
+</script>
+</html>

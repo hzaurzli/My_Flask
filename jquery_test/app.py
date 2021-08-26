@@ -1,0 +1,146 @@
+from flask import Flask,render_template,flash,request
+import time
+
+app = Flask(__name__)
+
+app.secret_key = '123456'
+
+
+@app.route('/')
+def test():
+    aa = 'tes'
+    return render_template("test.html",aa=aa)
+
+@app.route('/index/')
+def index():
+    flash("lllll")
+    time.sleep(2)
+    return render_template("index.html")
+
+@app.route('/pag/')
+def pag():
+    aa = request.args.to_dict()
+    print(aa)
+
+    return render_template("ajax.html")
+
+@app.route('/ajax/')
+def ajax():
+    rst =  { "first": [
+  		{ "name": "张三", "sex": "男"},
+        { "name": "李思", "sex": "女"},
+        { "name": "王五", "sex": "男"},
+        { "name": "赵柳", "sex": "女"}] }
+
+    return rst
+
+@app.route('/spi/')
+def spi():
+    return render_template("spicies.html")
+
+@app.route('/ppp/<spicies>/<tissue>')
+def ppp(spicies,tissue):
+    aa = spicies
+    bb = tissue
+    print(aa)
+    print(bb)
+    rst = {"aa": aa,"bb": bb}
+    return rst
+
+@app.route('/sp/<spicies>/<tissue>')
+def sp(spicies,tissue):
+    return render_template("sp.html",sp=spicies,ti=tissue)
+
+@app.route('/down/')
+def down():
+    return render_template("download.html")
+
+@app.route('/download/')
+def download():
+    rst = "money"
+    with open("D:/pycharm/jquery_hide_window/static/jest.txt", "w") as w:
+        line = rst + "\n"
+        w.write(line)
+
+    file = "/static/jest.txt"
+
+    return file
+
+
+@app.route('/param/',methods=['GET'])
+def param():
+    if request.method == "GET":
+        data = request.args.get("data")
+        print(data)
+        return data
+
+@app.route('/par/')
+def par():
+    return render_template("param.html")
+
+
+@app.route('/sel/')
+def sel():
+    return render_template("select.html")
+
+@app.route('/ind/')
+def ind():
+    return render_template("ind.html")
+
+@app.route('/select/',methods=['GET'])
+def select():
+    if request.method == "GET":
+        data = request.args.to_dict()
+        print(type(data))
+        dat = data["fname"]
+        print(dat)
+        return dat
+
+
+@app.route('/div/', methods=['GET'])
+def div():
+    return render_template("div.html")
+
+@app.route('/div_test/', methods=['GET'])
+def div_test():
+    rst = "<p>hhhhahah</p>"
+    return rst
+
+@app.route('/pagtion/')
+def pagtion():
+    return render_template("pag.html")
+
+@app.route('/pag_ajax/', methods=['GET'])
+def pag_ajax():
+    data = request.args.to_dict()
+    dat = data["data"]
+    print(dat)
+    skip = 1
+    mm = [{ "name": "张三", "sex": "男"},
+        { "name": "李思", "sex": "女"},
+        { "name": "王五", "sex": "男"},
+        { "name": "赵柳", "sex": "女"}]
+    nn = mm[int(dat)-1 : int(dat)-1 + skip]
+    rst = {}
+    rst["first"] = nn
+    time.sleep(3)
+    return rst
+
+@app.route('/attr/')
+def attr():
+    return render_template("pag_A.html")
+
+@app.route('/attr_B/')
+def attr_B():
+    return render_template("pag_B.html")
+
+@app.route('/gene/')
+def gene():
+    return render_template("gene_struction.html")
+
+@app.route('/check/')
+def check():
+    return render_template("checkbox.html")
+
+if __name__ == '__main__':
+    app.run()

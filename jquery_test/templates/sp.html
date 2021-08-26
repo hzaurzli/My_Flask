@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <p>
+      <a>{{ sp }}</a>
+      <a>{{ ti }}</a>
+  </p>
+
+</body>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+    function ajax_test() {
+        var aa = '{{ sp }}';
+        console.log(aa);
+      $.ajax({
+              url: "/ppp/{{ sp }}/{{ ti }}", //文件位置
+              type: "GET", //请求方式为get
+              dataType: "", //返回数据格式
+              success: function (data) { //请求成功完成后要执行的方法
+                  console.log(data);
+                  {#alert(data)#}
+              }
+          })
+    }
+  	ajax_test(); //执行函数
+</script>
+</html>

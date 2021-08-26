@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+  <p>
+      <a id="first">small</a>
+      <a id="second">runze</a>
+  </p>
+
+</body>
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+    function ajax_test() {
+        var first=$("#first").text();
+        var second=$("#second").text();
+        console.log(first);
+        var my_data = { data: JSON.stringify({
+                        "fname": first ,
+                        "sname": second ,
+                    })
+   };
+      $.ajax({
+              url: "/param/", //文件位置
+              type: "GET", //请求方式为get
+              dataType: "", //返回数据格式
+              data: my_data ,
+              success: function (data) { //请求成功完成后要执行的方法
+                  console.log(data);
+                  alert(data)
+              }
+          })
+    }
+  	ajax_test(); //执行函数
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+   <p id="te">{{ aa }}</p>
+   <p id="fff">daaaaaaaa</p>
+   <a href="{{ url_for('index') }}">click</a>
+
+
+<script type="text/javascript">
+     var value = $('#te').text();
+     console.log(console.log(typeof value));
+     if(value.length != 0){
+         $('#fff').hide();
+     }
+</script>
+
+</body>
+</html>

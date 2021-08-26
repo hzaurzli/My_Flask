@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+
+</head>
+<body>
+
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script>
+   function ajax_test() {
+  		$.ajax({
+  			url: "/ajax/", //json文件位置
+  			type: "GET", //请求方式为get
+  			dataType: "json", //返回数据格式为json
+  			success: function(data) { //请求成功完成后要执行的方法
+  				{#alert(data.first);#}
+  				console.log(data.first)
+  				//each循环 使用$.each方法遍历返回的数据date
+  				$.each(data.first, function(i, item) {
+  				    if(item.name == '张三'){
+  				        console.log(item.name)
+  				    }
+
+  					var str = '<div>姓名:' + item.name + '性别：' + item.sex + '</div>';
+  					document.write(str);
+  				})
+  			}
+  		})
+  	}
+  	ajax_test(); //执行函数
+</script>
+</body>
+</html>
