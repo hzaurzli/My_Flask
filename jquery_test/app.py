@@ -31,7 +31,7 @@ def ajax():
         { "name": "李思", "sex": "女"},
         { "name": "王五", "sex": "男"},
         { "name": "赵柳", "sex": "女"}] }
-
+    time.sleep(5)
     return rst
 
 @app.route('/spi/')
@@ -141,6 +141,10 @@ def gene():
 @app.route('/check/')
 def check():
     return render_template("checkbox.html")
+
+@app.route('/progre/')
+def progre():
+    return render_template("progress.html")
 
 if __name__ == '__main__':
     app.run()
