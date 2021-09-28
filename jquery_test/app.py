@@ -146,5 +146,13 @@ def check():
 def progre():
     return render_template("progress.html")
 
+@app.route('/igv/')
+def igv():
+    return render_template("igv.html")
+
+@app.route('/jq/')
+def jq():
+    return render_template("jqval.html")
+
 if __name__ == '__main__':
     app.run()
