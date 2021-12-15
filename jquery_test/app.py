@@ -154,5 +154,21 @@ def igv():
 def jq():
     return render_template("jqval.html")
 
+@app.route('/syn/')
+def syn():
+    return render_template("SYNVISIO.html")
+#
+# @app.route("/upload",methods=['GET','POST'])
+# def upload():
+#     if request.method=='POST':
+#         f = request.files["file"]
+#         stream = f.stream
+#         url = 'https://synvisio.github.io/#/Upload'
+#         fields = {"category": "1", "refKey": "WX"}
+#         files = {'file': (f.filename, stream)}
+#         r = requests.post(url, data=fields, verify=False, files=files)
+#     return r
+
+
 if __name__ == '__main__':
     app.run()

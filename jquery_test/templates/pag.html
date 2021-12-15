@@ -21,10 +21,24 @@
 
 <div id="load"></div>
 
+<button>切换</button>
+
 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/static/Pagination.js"></script>
 <script>
-    function pag() {
+
+    var mm = 2;
+      $("button").click(function(){
+            var mm = 1;
+            console.log(mm);
+        });
+
+      {#console.log(mm);#}
+
+    function pag(mm) {
+        var mm =mm;
+        console.log(mm);
+
         var my_data = {data: '1'};
         $.ajax({
             url: "/pag_ajax/", //json文件位置
@@ -90,7 +104,7 @@
             }
         });
      }
-     pag();
+     pag(mm);
 </script>
 </body>
 </html>
