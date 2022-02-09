@@ -169,6 +169,33 @@ def syn():
 #         r = requests.post(url, data=fields, verify=False, files=files)
 #     return r
 
+@app.route('/chart/')
+def chart():
+    return render_template("chart.html")
+
+@app.route('/chart_json/', methods=['GET'])
+def chart_json():
+    rst = {
+        "reDates":[
+            {
+                "ChartName":"2010 ~ 2016 年太阳能行业就业人员发展情况","XAxisName":["Feb","Mar","W01","W02","W03","W04"],
+                "DataList":[{"name":"安装，实施人员","data":[8000,4000,8000,6000,5000,4000]},
+                            {"name":"工人","data":[8000,5000,8000,8000,6000,5000]},
+                            {"name":"销售","data":[5000,8000,4000,8000,8000,8000]}
+                            ]
+            },
+            {
+                "ChartName":"美苏核武器库存量","XAxisName":["Feb","Mar","W01","W02","W03","W04"],
+                "DataList":[{"name":"美国","data":[3000,4000,8000,6000,5000,4000]},
+                            {"name":"苏联/俄罗斯","data":[8000,5000,8000,8000,6000,5000]},
+                            {"name":"其他","data":[5000,8000,4000,8000,8000,8000]}
+                            ]
+            }
+        ]
+    }
+
+    return rst
+
 
 if __name__ == '__main__':
     app.run()
