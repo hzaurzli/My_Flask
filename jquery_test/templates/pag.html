@@ -15,6 +15,54 @@
 <div >apvpvppxpspdpp</div>
 <div id="test"></div>
 <div id="load"></div>
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
+{#<div>dadada</div>#}
+{#<div>adada</div>#}
+{#<div>addasd</div>#}
+{#<div>asdasdsad</div>#}
+{#<div>dasda</div>#}
+{#<div>adsda</div>#}
 <div class="container">
     <div class="myPagination"></div>
 </div>
@@ -67,40 +115,62 @@
            }
         });
 
-        $(".myPagination").Pagination({
-            page: 1,
-            count: 100,
-            groups: 10,
-            onPageChange: function (page) {
-                console.log("当前是:" + page);
-                var pag = page;
-                console.log(pag);
-                var my_data = {data: page};
-                $.ajax({
-                    url: "/pag_ajax/", //文件位置
-                    type: "GET", //请求方式为get
-                    dataType: "", //返回数据格式
-                    data: my_data,
-                    beforeSend: function (XMLHttpRequest) {
-                        console.log("aaaaa");
-                        $("#test").empty();
-                        var htmlValue = '<img src="/static/loader.gif"/>';
-                        $("#load").html(htmlValue);
-                        },
-                    success: function (data) { //请求成功完成后要执行的方法
-                        {#alert(data.first);#}
-                        console.log(data.first);
-                        $.each(data.first, function (i, item) {
-                            console.log(item.name);
-                            var str = '<div>姓名:' + item.name + '</div>';
-                            $('#test').html(str);
-                        });
-                        $("#load").empty();
-                        },
-                    complete:function (){
-                        $("#load").empty();
-                    }
-                })
+
+        var my_count = {data: '1'};
+        $.ajax({
+            url: "/pag_ajax_count/", //json文件位置
+            type: "GET", //请求方式为get
+            dataType: "",
+            data: my_count,
+            beforeSend: function (XMLHttpRequest) {
+                                        console.log("aaaaa");
+                                        $("#test").empty();
+                                        var htmlValue = '<img src="/static/loader.gif"/>';
+                                        $("#load").html(htmlValue);
+                                        },
+            success: function (data) { //请求成功完成后要执行的方法
+                var num = data.first;
+                   $(".myPagination").Pagination({
+                            page: 1,
+                            groups: 10,
+                            count: num,
+                            onPageChange: function (page) {
+                                console.log("当前是:" + page);
+                                var pag = page;
+                                console.log(pag);
+                                var my_data = {data: page};
+                                var b = $("#test").text();
+                                console.log(b);
+                                $.ajax({
+                                    url: "/pag_ajax/", //文件位置
+                                    type: "GET", //请求方式为get
+                                    dataType: "", //返回数据格式
+                                    data: my_data,
+                                    beforeSend: function (XMLHttpRequest) {
+                                        console.log("aaaaa");
+                                        $("#test").empty();
+                                        var htmlValue = '<img src="/static/loader.gif"/>';
+                                        $("#load").html(htmlValue);
+                                        },
+                                    success: function (data) { //请求成功完成后要执行的方法
+                                        {#alert(data.first);#}
+                                        console.log(data.first);
+                                        $.each(data.first, function (i, item) {
+                                            console.log(item.name);
+                                            var str = '<div>姓名:' + item.name + '</div>';
+                                            $('#test').html(str);
+                                        });
+                                        $("#load").empty();
+                                        },
+                                    complete:function (){
+                                        $("#load").empty();
+                                    }
+                                })
+                            }
+                   });
+            },
+            complete:function (){
+                $("#load").empty();
             }
         });
      }
