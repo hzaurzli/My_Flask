@@ -126,6 +126,20 @@ def pag_ajax():
     time.sleep(3)
     return rst
 
+@app.route('/pag_ajax_count/', methods=['GET'])
+def pag_ajax_count():
+    data = request.args.to_dict()
+    dat = data["data"]
+    print(dat)
+    if dat == '1':
+        mm = 100
+    else:
+        mm = 1000
+    rst = {}
+    rst["first"] = mm
+    time.sleep(3)
+    return rst
+
 @app.route('/attr/')
 def attr():
     return render_template("pag_A.html")
