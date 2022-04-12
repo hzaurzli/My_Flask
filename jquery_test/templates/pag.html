@@ -66,14 +66,22 @@
 <div class="container">
     <div class="myPagination"></div>
 </div>
-
+<input id='id'>
 <div id="load"></div>
 
-<button>切换</button>
+<button onclick='get()'>切换</button>
 
 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
 <script src="/static/Pagination.js"></script>
 <script>
+
+{## 添加搜索功能 #}
+function get(){
+   var e = $('#id').val();
+   pag(mm);
+    console.log(e);
+};
+
 
     var mm = 2;
       $("button").click(function(){
@@ -140,7 +148,11 @@
                                 console.log(pag);
                                 var my_data = {data: page};
                                 var b = $("#test").text();
+
+                                {#拿取搜索框的值#}
                                 console.log(b);
+                                 var e = $('#id').val();
+                                 console.log(e);
                                 $.ajax({
                                     url: "/pag_ajax/", //文件位置
                                     type: "GET", //请求方式为get
