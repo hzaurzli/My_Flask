@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://www.jq22.com/jquery/bootstrap-3.3.4.css">
+</head>
+<body>
+<style>
+*{ margin:0; padding:0;}
+body{ font-family:'微软雅黑';}
+ul,ul li{ list-style:none;}
+/* topmenu */
+#topmenu{width:450px;margin:30px auto 0 auto;height:80px;position:relative;}
+#topmenu ul{margin:0;padding:0;}
+#topmenu ul li{float:left;font-size:12px;background:#222;position:relative;text-align:center;width:70px;margin:0 10px;display:inline;line-height:30px;}
+#topmenu ul li a{color:#aaa;text-decoration:none;}
+#topmenu ul li a:hover{color:#fff;}
+#topmenu ul li.active a{color:#fff;font-weight:800;}
+/* tab */
+.tab{width:430px;margin:30px auto;border:1px solid #ccc;}
+.tab ul.menu{height:34px;background:#f6f6f6;}
+.tab ul.menu li{float:left;text-align:center;width:120px;height:32px;background:#f6f6f6;line-height:32px;list-style:none;font-size:12px;cursor:pointer;}
+.tab ul.menu li.active{background:#e2383a;color:#fff;}
+.con1,.con2,.con3{height:190px;border-top:2px solid #e2383a;margin-top:-2px;}
+.con2,.con3{display:none;}
+.con1 ul,.con2 ul,.con3 ul{padding:5px;}
+.con1 ul li,.con2 ul li,.con3 ul li{background:url(images/point.png) no-repeat left center;padding:0 0 0 10px;font-size:14px;line-height:180%;color:#252525;}
+.con1 ul li:hover,.con2 ul li:hover,.con3 ul li:hover{color:#ba2636;cursor:pointer;text-decoration:underline;}
+</style>
+
+<div >apvpvppxpspdpp</div>
+<div id="test"></div>
+<div id="load"></div>
+<div class="container">
+    <div class="myPagination"></div>
+</div>
+<input id='id'>
+<button onclick='get()'>切换</button>
+<div id="load"></div>
+
+<div class="tab">
+	<ul class="menu">
+		<li class="active">新闻</li>
+		<li>娱乐</li>
+		<li>图片</li>
+	</ul>
+	<div class="con1">
+		<ul>
+			<li>习近平视察沈飞集团 坐进歼-15机舱(图)</li>
+		</ul>
+	</div>
+	<div class="con2">
+		<ul>
+			<li>日本军人女歌手出专辑走红 被赞美丽过头(图)</li>
+
+		</ul>
+	</div>
+	<div class="con3">
+		<ul>
+			<li>奥巴马拒绝俄方郊外住宿安排 要求住市中心</li>
+
+		</ul>
+	</div>
+</div>
+
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="/static/Pagination.js"></script>
+<script>
+$(function () {
+   $('.tab ul.menu li').click(function(){
+        //获得当前被点击的元素索引值
+        var Index = $(this).index();
+        //给菜单添加选择样式
+	    $(this).addClass('active').siblings().removeClass('active');
+		//显示对应的div
+		$('.tab').children('div').eq(Index).show().siblings('div').hide();
+		if(Index == 0){
+		   console.log("0-p");
+		   var mmm = $('.active').text();
+		   get(mmm);
+		}else if(Index == 1){
+		   console.log("1-p");
+		   var mmm = $('.active').text();
+		   get(mmm);
+		}else if(Index == 2){
+		   console.log("2-p");
+		   var mmm = $('.active').text();
+		   get(mmm);
+		};
+   });
+});
+
+
+
+{## 添加搜索功能 #}
+function get(mmm){
+   var e = $('#id').val();
+   pag(mmm,e);
+};
+
+
+function pag(x,e) {
+        {#获取tab值#}
+        var mmm = $('.active').text();
+        console.log("hahahaha"+ mmm);
+        var my_data = {data: '1'};
+        $.ajax({
+            url: "/pag_ajax/", //json文件位置
+            type: "GET", //请求方式为get
+            dataType: "",
+            data: my_data,
+            timeout:15000,
+            beforeSend: function (XMLHttpRequest) {
+               $("#test").empty();
+               var htmlValue = '<img src="/static/loader.gif"/>';
+               $("#load").html(htmlValue);
+           },
+            success: function (data) { //请求成功完成后要执行的方法
+                {#alert(data.first);#}
+                console.log(data.first);
+                $.each(data.first, function (i, item) {
+                    console.log(item.name);
+                    var str = '<div>姓名:' + item.name + '</div>';
+                    $('#test').html(str);
+                });
+                $("#load").empty();
+            },
+            complete:function (){
+               $("#load").empty();
+           }
+        });
+
+
+        var my_count = {data: '1'};
+        $.ajax({
+            url: "/pag_ajax_count/", //json文件位置
+            type: "GET", //请求方式为get
+            dataType: "",
+            data: my_count,
+            beforeSend: function (XMLHttpRequest) {
+                                        $("#test").empty();
+                                        var htmlValue = '<img src="/static/loader.gif"/>';
+                                        $("#load").html(htmlValue);
+                                        },
+            success: function (data) { //请求成功完成后要执行的方法
+                var num = data.first;
+                   $(".myPagination").Pagination({
+                            page: 1,
+                            groups: 10,
+                            count: num,
+                            onPageChange: function (page) {
+                                console.log("当前是:" + page);
+                                var pag = page;
+                                console.log(pag);
+                                var my_data = {data: page};
+                                var b = $("#test").text();
+                                console.log(b);
+
+                                {#拿取搜索框的值#}
+                                 var e = $('#id').val();
+                                 console.log(e);
+
+                                 {#获取tab值#}
+                                 var mmm = $('.active').text();
+                                 console.log("ha"+ mmm);
+                                $.ajax({
+                                    url: "/pag_ajax/", //文件位置
+                                    type: "GET", //请求方式为get
+                                    dataType: "", //返回数据格式
+                                    data: my_data,
+                                    beforeSend: function (XMLHttpRequest) {
+                                        $("#test").empty();
+                                        var htmlValue = '<img src="/static/loader.gif"/>';
+                                        $("#load").html(htmlValue);
+                                        },
+                                    success: function (data) { //请求成功完成后要执行的方法
+                                        {#alert(data.first);#}
+                                        console.log(data.first);
+                                        $.each(data.first, function (i, item) {
+                                            console.log(item.name);
+                                            var str = '<div>姓名:' + item.name + '</div>';
+                                            $('#test').html(str);
+                                        });
+                                        $("#load").empty();
+                                        },
+                                    complete:function (){
+                                        $("#load").empty();
+                                    }
+                                })
+                            }
+                   });
+            },
+            complete:function (){
+                $("#load").empty();
+            }
+        });
+     }
+     var mmm = $('.active').text();
+     pag(mmm);
+</script>
+</body>
+</html>
