@@ -171,6 +171,10 @@ def jq():
 @app.route('/syn/')
 def syn():
     return render_template("SYNVISIO.html")
+
+@app.route('/tab/')
+def tab():
+    return render_template("tab.html")
 #
 # @app.route("/upload",methods=['GET','POST'])
 # def upload():
