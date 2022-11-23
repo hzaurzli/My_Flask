@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>tab切换</title>
+   <style type="text/css">
+       #box{
+           height: 400px;
+           width: 600px;
+           border: 1px solid #ccc;
+           padding: 10px;
+       }
+       ul{
+           height: 30px;
+           width: 600px;
+           padding: 0;
+           margin: 0;
+       }
+       li{
+           display: block;
+           text-align: center;
+           width: 100px;
+           float: left;
+           list-style: none;
+           cursor: pointer;
+           height: 30px;
+           line-height: 30px;
+       }
+       .choice{
+               background: #409EFF;
+               color: #fff;
+       }
+       .tab-item{
+           display: none;
+       }
+       .show{
+           display: block;
+       }
+   </style>
+</head>
+<body>
+   <ul>
+       <li id="1" class="choice" onclick='get(this.id)'>tab1</li>
+       <li id="2" onclick='get(this.id)'>tab2</li>
+       <li id="3" onclick='get(this.id)'>tab3</li>
+   </ul>
+  <div id="box">
+	   <div>aaaaaa</div>
+	   <a onclick="sub()">aa</a>
+   </div>
+   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+   <script type="text/javascript">
+
+       function get(x){
+		   var yy = x;
+		   console.log(yy);
+		   if(yy == '1'){
+			    $('#1').attr("class","choice")
+				//id不等于1的属性class去除
+           		$("li:not([id='1'])").attr("class","")
+			  	 var line = '<div>aaaaaa</div><a onclick="sub()">aa</a>'
+			  	 $('#box').html(line);
+		   }
+		   if(yy == '2'){
+			    $('#2').attr("class","choice")
+           		$("li:not([id='2'])").attr("class","")
+			  	$('#box').empty();
+			  	 var line = '<div>b</div><a onclick="sub()">aa</a>'
+			   	$('#box').html(line);
+		   }
+		   if(yy == '3'){
+			    $('#3').attr("class","choice")
+           		$("li:not([id='3'])").attr("class","")
+			    $('#box').empty();
+			   	 var line = '<div>ccc</div><a onclick="sub()">aa</a>'
+			   	$('#box').html(line);
+		   }
+	   }
+	   
+	    function sub(x){
+		//获得被选中tab的id属性值
+			var tt = $('.choice').attr("id");
+			console.log(tt);
+			 var line = '<div>dadadadada</div>'
+			 $('#box').append(line);
+		}
+	   
+   </script>
+</body>
+</html>
