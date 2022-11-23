@@ -46,6 +46,7 @@
    </ul>
    <div id="box">
 	   <div>aaaaaa</div>
+	   <a onclick="sub()">aa</a>
    </div>
    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
    <script type="text/javascript">
@@ -55,7 +56,6 @@
 		   console.log(yy);
 		   if(yy == '1'){
 			    $('#1').attr("class","choice")
-				//id不等于1的属性class去除
            		$("li:not([id='1'])").attr("class","")
 			  	 var line = '<div>aaaaaa</div><a onclick="sub()">aa</a>'
 			  	 $('#box').html(line);
@@ -77,9 +77,10 @@
 	   }
 	   
 	    function sub(x){
-		//获得被选中tab的id属性值
 			var tt = $('.choice').attr("id");
 			console.log(tt);
+			 var line = '<div>dadadadada</div>'
+			 $('#box').append(line);
 		}
 	   
    </script>
