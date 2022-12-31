@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='angularplasmid.complete.min.js'></script>
+    </head>
+    <body>
+	<div id='ng'>
+        <plasmid sequencelength='1000'>
+            <plasmidtrack radius='75' style='fill:#f0f0f0;stroke:#ccc'>
+                <trackmarker ng-repeat='n in [{start:30,end:80},{start:130,end:150},{start:260,end:310},{start:590,end:620}]' start='{{n.start}}' end='{{n.end}}' style='fill:#9cf;stroke:#036'>
+                    <markerlabel text='Pos [{{n.start}}]' vadjust='35' style='font-size:10px'></markerlabel>
+                </trackmarker>
+                <tracklabel text='pBR1' style='font-size:25px;font-weight:bold'></tracklabel>
+                <trackscale interval='10' direction='in' style='stroke:#ccc'></trackscale>
+                <trackscale interval='100' direction='in' showlabels='1' style='stroke:#f00;stroke-width:2p' labelvadjust='10' labelstyle='font-size:8px;fill:#999'></trackscale>
+            </plasmidtrack>
+        </plasmid>
+	</div>
+    </body>
+</html>
