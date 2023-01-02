@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<iframe id='imgId1' src='' width="1300" height="1200"></iframe>
+<iframe id='imgId2' src='' width="1300" height="1200"></iframe>
+
+<script>
+    $.myFunc1 = function(){
+        $("#imgId1").attr('src','http://127.0.0.1:5000/cvit/?data=test1');
+        $("#imgId2").attr('src','http://127.0.0.1:5000/cvit/?data=test5');
+	}
+    $.myFunc1();
+</script>
+</body>
+</html>
