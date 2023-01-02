@@ -19,6 +19,10 @@ def up_file():
 
 @app.route('/', methods=['get', 'post'])
 def index():
+    return render_template('index.html')
+
+@app.route('/cvit/', methods=['get', 'post'])
+def cvit():
     return render_template('cvit.html')
 
 if __name__ == "__main__":
