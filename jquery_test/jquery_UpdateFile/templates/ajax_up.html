@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<div>
+	<input type="file" name="FileUpload" id="FileUpload">
+	<button id="btn_uploadimg">Click</button>
+</div>
+
+<script>
+    $("#btn_uploadimg").click(function () {
+        var fileObj = document.getElementById("FileUpload").files[0]; // js 获取文件对象
+        console.log(fileObj);
+
+        var formFile = new FormData();
+        formFile.append("action", "UploadVMKImagePath");
+        formFile.append("file", fileObj); //加入文件对象
+
+        var form_data = formFile;
+        $.ajax({
+            url: "http://127.0.0.1:5000/up_file/",
+            data: form_data,
+            type: "post",
+            dataType: "json",
+            cache: false,//上传文件无需缓存
+            processData: false,//用于对data参数进行序列化处理 这里必须false
+            contentType: false, //必须
+            success: function (result) {
+                alert("上传完成!");
+            },
+        })
+    })
+
+
+ </script>
+
+</body>
+</html>
