@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/prism.css" />
+    <link rel="stylesheet" href="./css/tables.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <script src='./js/marked.min.js'></script>
+    <script src='./js/general.js'></script>
+
+    <!-- D3 -->
+    <script src="./js/d3.min.js"></script>
+    <!-- CGView -->
+    <script src='./js/cgview.min.js'></script>
+    <link rel="stylesheet" href="./css/cgview.css" />
+    <link rel="stylesheet" href="./css/controls.css" />
+
+    <!-- Plausible Analytics -->
+    <script defer data-domain="js.cgview.ca" src="https://stats.stothardresearch.ca/js/plausible.outbound-links.js"></script>
+    <title>CGView.js - Examples</title>
+  </head>
+  <body>
+
+
+# Genome with Contigs
+
+<div id='my-viewer'></div>
+<div class='cgv-controls'>
+  <div class='cgv-btn' id='btn-reset' title='Reset Map'></div>
+  <div class='cgv-btn' id='btn-zoom-in' title='Zoom In'></div>
+  <div class='cgv-btn' id='btn-zoom-out' title='Zoom Out'></div>
+  <div class='cgv-btn' id='btn-move-left' title='Move Left/Counterclockwise'></div>
+  <div class='cgv-btn' id='btn-move-right' title='Move Right/Clockwise'></div>
+  <div class='cgv-btn' id='btn-toggle-format' title='Toggle Linear/Circular Format'></div>
+  <div class='cgv-btn' id='btn-invert-colors' title='Invert Map Colors'></div>
+  <div class='cgv-btn' id='btn-download' title='Download Map PNG'></div>
+  <div class='cgv-btn' id='btn-toggle-labels' title='Toggle Labels'></div>
+  <div class='cgv-btn' id='btn-animate' title='Start/Stop Animation'></div>
+</div>
+
+<div id='example-tables'></div>
+
+
+
+</div> <!-- End of markdown in -->
+
+<script>
+    tutorialMarkdown(marked);
+    addExampleTables('GCF_000335355', 'Escherichia coli PA2', '5,246,924', 'https://www.ncbi.nlm.nih.gov/assembly/GCF_000335355.2');
+</script>
+
+<script src="./js/prism.js"></script>
+
+    <!-- Bootstrap JavaScript -->
+<script src="./js/bootstrap.min.js"></script>
+
+<script>
+    createViewerAndLoadJSON('./data/json/GCF_000335355.json');
+</script>
+<script src='./js/controls.js'></script>
+
+</body>
+</html>
