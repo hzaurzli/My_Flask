@@ -5,7 +5,9 @@
   overflow: hidden;
   display: inline-block;
   border: 1px solid #DDD;
-  text-align: left;
+  position: absolute;
+  left: 28%;
+  top: 0;
 }
 
 .cgv-layer {
