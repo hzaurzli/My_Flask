@@ -7,7 +7,6 @@
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cgview/dist/cgview.min.js"></script>
-    <script src="https://js.cgview.ca/scripts/controls.js"></script>
 
     <link rel="stylesheet" href="../static/css/cgview.css">
     <link rel="stylesheet" href="https://js.cgview.ca/styles/controls.css">
@@ -40,7 +39,7 @@
     });
 
     var request = new XMLHttpRequest();
-    request.open('GET', '../static/data/GCF_000335355.json', true);
+    request.open('GET', '../static/data/LP1.json', true);
     request.onload = function() {
       var response = request.response;
       const json = JSON.parse(response);
@@ -49,10 +48,9 @@
     };
     request.send();
 
-
     onClick = function(id, func) {
-      const btn = document.getElementById(id);
-      btn.addEventListener('click', func);
+        const btn = document.getElementById(id);
+        btn.addEventListener('click', func);
     }
 
 
@@ -114,9 +112,10 @@
     });
 
     cgv.draw();
+
   {#createViewerAndLoadJSON('../static/data/GCF_000335355.json');#}
 </script>
-<script src='../static/js/controls.js'></script>
+<script src="https://js.cgview.ca/scripts/controls.js"></script> {#controls.js一定要放入js脚本地下,否则失效#}
 
   </body>
 </html>
