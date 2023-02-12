@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+        <script src="../static/js/httpVueLoader.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h1>
+				vue-router
+			</h1>
+			<p>
+				<!--router-link：起到导航的作用，类似于我们常用的a标签。
+				to：表示跳转到哪里去。  -->
+				<router-link to="/first">go to first page</router-link>
+				<router-link to="/second">go to second page</router-link>
+                <router-link to="/three">go to three page</router-link>
+			</p>
+			<!-- 将路由匹配到的组件渲染到这里。不写的话点击连接没有内容出现。-->
+			<router-view></router-view>
+		</div>
+	</body>
+	<script>
+
+		const routes = [
+			{
+				// 访问路径
+				path: '/first',
+				// 与路径对应的组件
+				component: httpVueLoader('../static/vue/demo.vue')
+			},
+			{
+				path: '/second',
+				component: {template: '<h2>当前是第二个页面</h2>'}
+			},
+            {
+				// 访问路径
+				path: '/three',
+				// 与路径对应的组件
+				component: httpVueLoader('../static/vue/component.vue')
+			}
+		]
+		// 创建vuerouter实例，将配置好的路径配置进去
+		const router = new VueRouter({
+			// routes:routes 等价于 routes。这就是为什么上面必须要写routes的原因。
+			routes
+		})
+
+		// 创建vue实例，将router对象配置进去，就大功告成了。
+		var app = new Vue({
+			router
+		}).$mount('#app');
+	</script>
+</html>
