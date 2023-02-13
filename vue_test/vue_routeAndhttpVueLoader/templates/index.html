@@ -15,6 +15,7 @@
 			<p>
 				<!--router-link：起到导航的作用，类似于我们常用的a标签。
 				to：表示跳转到哪里去。  -->
+				<!--如果是根路由则直接写 "/"-->
 				<router-link to="/first">go to first page</router-link>
 				<router-link to="/second">go to second page</router-link>
                 <router-link to="/three">go to three page</router-link>
@@ -28,7 +29,7 @@
 		const routes = [
 			{
 				// 访问路径
-				path: '/first',
+				path: '/first', //如果是根路由则直接写 "/"
 				// 与路径对应的组件
 				component: httpVueLoader('../static/vue/demo.vue')
 			},
