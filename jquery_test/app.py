@@ -70,7 +70,7 @@ def download():
 @app.route('/param/',methods=['GET'])
 def param():
     if request.method == "GET":
-        data = request.args.get("data")
+        data = request.args.to_dict()
         print(data)
         return data
 
