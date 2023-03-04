@@ -17,11 +17,10 @@
         var first=$("#first").text();
         var second=$("#second").text();
         console.log(first);
-        var my_data = { data: JSON.stringify({
-                        "fname": first ,
-                        "sname": second ,
-                    })
-   };
+        var my_data = { 
+              "fname": first ,
+              "sname": second ,
+        };
       $.ajax({
               url: "/param/", //文件位置
               type: "GET", //请求方式为get
