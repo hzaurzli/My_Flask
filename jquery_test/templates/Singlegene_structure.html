@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title> 
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+ 
+</head>
+<body>
+<div id = "gene_locus" style="width: 550px"></div>
+<script type="text/javascript">
+    refdata = [
+	{'name': 'GeneA', 
+		'value': [0, 1336252, 1336806, 554, '+']
+	}, 
+	{'name': 'GeneA', 
+		'value': [0, 1337496, 1337522, 26, '+']
+	}];
+    isodata = [];
+    utrrefdata = [];
+    utrisodata = [];
+    ydata = ['GeneA'];
+    lineisodata = [];
+    linerefdata = [{'name': 'GeneA', 'value': [0, 1336252, 1337522]}];
+    genestart = 1336252;
+    var startLoc = genestart - 100;
+    
+    xdata = [554, 26];
+    var xmax = Math.max.apply(null, xdata);
+
+    var container = document.getElementById('gene_locus');
+    var resizeContainer = function(){
+        container.style.height = ydata.length * 40 + 120 + 'px';
+        if (xmax + 100 < 1000){
+          container.style.width = 1000 + 'px';
+        }
+        else{
+          container.style.width = xmax + 100 + 'px';
+        }
+        //container.style.width = 1000 + 'px';
+    }
+
+    resizeContainer();
+
+    
+    var dom = document.getElementById("gene_locus");
+    var myChart = echarts.init(dom);
+
+    // console.log(data);
+    function renderItem(params, api) {
+        var categoryIndex = api.value(0);
+        var start = api.coord([api.value(1), categoryIndex]);
+        var end = api.coord([api.value(2), categoryIndex]);
+        var height = api.size([0, 1])[1] / 2;
+
+        if (api.value(5) == '+'){
+          return {
+              type: 'group',
+              children: [
+                          {
+                            type: 'polygon',
+                            shape: {
+                              points: [[start[0], start[1] - height / 2],
+                                       [start[0], start[1] + height / 2],
+                                       [end[0], end[1] + height / 2],
+                                       [end[0]+3, end[1]],
+                                       [end[0], end[1] - height / 2],
+                                       [start[0], start[1] - height / 2]]
+                            },
+                            style: api.style()
+                          }]
+        };
+        }
+        else{
+          return {
+              type: 'group',
+              children: [
+                          {
+                            type: 'polygon',
+                            shape: {
+                              points: [[start[0], start[1] - height / 2],
+                                       [start[0]-3, start[1]],
+                                       [start[0], start[1] + height / 2],
+                                       [end[0], end[1] + height / 2],
+                                       [end[0], end[1] - height / 2],
+                                       [start[0], start[1] - height / 2]]
+                            },
+                            style: api.style()
+                          }]
+        };
+        }
+      }
+      function UTRrenderItem (params, api) {
+            var categoryIndex = api.value(0);
+            var start = api.coord([api.value(1), categoryIndex]);
+            var end = api.coord([api.value(2), categoryIndex]);
+            var height = api.size([0, 1])[1] * 0.3;
+
+            var rectShape = echarts.graphic.clipRectByRect({
+                x: start[0],
+                y: start[1] - height / 2,
+                width: end[0] - start[0],
+                height: height
+            }, {
+                x: params.coordSys.x,
+                y: params.coordSys.y,
+                width: params.coordSys.width,
+                height: params.coordSys.height
+            });
+            return rectShape && {
+                type: 'rect',
+                transition: ['shape'],
+                shape: rectShape,
+                style: api.style()
+            };
+        }
+        function linerenderItem (params, api) {
+            var categoryIndex = api.value(0);
+            var start = api.coord([api.value(1), categoryIndex]);
+            var end = api.coord([api.value(2), categoryIndex]);
+            var height = api.size([0, 1])[1];
+            return {
+                  type: 'line',
+                  shape: {
+                      x1: start[0],
+                      y1: start[1],
+                      x2: end[0],
+                      y2: end[1]
+                  },
+                  style:{
+                  stroke: '#808080'
+                  },
+                  silent: true
+            };
+        }
+    option = {
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            },
+            emphasis:{
+              iconStyle: {
+                textPosition: 'left',
+                borderColor: "rgba(84, 147, 48, 1)"
+              },
+            }
+        },
+        tooltip: {
+            formatter: function(params) {
+                return params.marker + params.name + ': ' + params.value[3] + ' bp (' + params.value[1] + ' ~ ' +  params.value[2] + 'bp)';
+            }
+        },
+        legend:{
+              icon: 'roundRect',
+              bottom: 5,
+              itemGap: 50
+        },
+        color: ['#4ca1a3','#a5e1ad'],
+        grid: {
+            top: 50,
+            right: '6%',
+            width: '81%'
+        },
+        xAxis: {
+            position: 'top',
+            min: startLoc,
+            scale: true,
+            axisLabel: {
+                formatter: function(val) {
+                    return val + ' bp';
+                }
+            },
+            splitLine:{
+              lineStyle: {
+                type: 'dashed',
+              }
+            }
+        },
+        yAxis: {
+            data: ydata,
+            // show: false,
+            axisLine: {
+                show: false
+            },
+            position: 'left',
+            axisTick: {
+                show: false
+            }
+        },
+        itemStyle: {
+                borderWidth: 1,
+                borderColor: 'rgba(0,0,0,1)',
+        },
+        series: [{
+            type: 'custom',
+            name: 'Annotation',
+            renderItem: linerenderItem,
+            encode: {
+                x: [1, 2],
+                y: 0
+            },
+            data: linerefdata
+        },
+        {
+            type: 'custom',
+            name: 'ISOSeq Result',
+            renderItem: linerenderItem,
+            encode: {
+                x: [1, 2],
+                y: 0
+            },
+            data: lineisodata
+        },
+        {
+            type: 'custom',
+            renderItem: UTRrenderItem,
+            name: 'ISOSeq Result',
+            encode: {
+                x: [1, 2],
+                y: 0
+            },
+            itemStyle: {
+                color: "#ffab73"
+            },
+            // data: data
+            data: utrisodata
+        },
+        {
+            type: 'custom',
+            renderItem: UTRrenderItem,
+            name: 'Annotation',
+            encode: {
+                x: [1, 2],
+                y: 0
+            },
+            itemStyle: {
+                color: "#ffab73"
+            },
+            // data: data
+            data: utrrefdata
+        },
+        {
+            type: 'custom',
+            name: 'Annotation',
+            renderItem: renderItem,
+            encode: {
+                x: [1, 2],
+                y: 0
+            },
+            // data: data
+            data: refdata
+        },
+        {
+            type: 'custom',
+            name: 'ISOSeq Result',
+            renderItem: renderItem,
+            encode: {
+                x: [1, 2],
+                y: 0
+            },
+            // data: data
+            data: isodata
+        }
+        ]
+    };
+    console.log(option);
+    // show graph
+    myChart.setOption(option);
+    window.onresize = function(){ myChart.resize();};
+</script>
+
+</body>
+</html>
+
+
