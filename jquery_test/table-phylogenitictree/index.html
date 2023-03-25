@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="4UegXkC5jKgB3zmbNZGk9QIPET6IsSvP0w-Y8Fq3vqA" />
+    <script type="text/javascript" src="./js/jquery-3.4.1.min.js"></script>
+    <title> Rice Gene Index (RGI): a comprehensive pan-genome database for comparative and functional genomics of Asian rice. </title> 
+    <!-- bootstrap css -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./css/home-new.css" rel="stylesheet">
+    
+    <script src="./js/chosen.jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/chosen.min.css">
+
+</head>
+<body>
+  <!-- genome table-->
+  <div id="main-wrapper">
+    <div id="main" class="clearfix">
+      <div class="section">
+        <div class="container">
+          <div class="row">         
+            <div id="genome_table">
+              <!--div id="show_tree_input"><button id="show_tree_button" class="btn btn-lg btn-outline-success" onclick="display('table_support_spec')" value="Show genome table and tree">Show genome table and tree</button></div>
+              <div id="table_support_spec" style="display:none"-->
+              <center>
+                <table>
+                  <tr style="background:#fff"><th colspan="6"><span>&nbsp;</span></th></tr>
+                  <tr style="background:#fff"><th colspan="6"><span>&nbsp;</span></th></tr>
+                  <tr style="background-color:white;">
+                    <!--th colspan="7"><span style="font-family:Arial;color:#575757;font-size:14pt;text-align:center;">Currently available reference genomes and annotations</span></th-->
+                  </tr>
+                  <tr style="background-color:#00712F;text-align: center; color:white; font-family:Arial;font-size:13pt;height:50px">
+
+                    <td colspan="2"> Accession Name </td>
+        				    <td> Subpopulation </td>
+        				    <td> Assembly </td>
+        				    <td> Annotation </td>
+        				    <td> Locus Tag Prefix </td>
+        				    <td> Gene </td>
+        				    <td> Reference </td>
+        				  </tr>
+        				  <tr>
+        				    <th rowspan="18" style="text-align:right;">
+        				      <img src="./tree-n.svg" width="110px" height="800px" title="tree"/>
+        				    </th>
+        				    <td style="font-style:italic;padding=100px;text-align:left" rowspan="3"><a href="https://riceome.hzau.edu.cn/variety/Nipponbare/" target="_blank"> Nipponbare </a></td>
+        				    <td rowspan="3"> <span style="font-style:italic;">Geng</span>-japonica-temp </td>
+        				    <td rowspan="3"><a href="https://riceome.hzau.edu.cn/jbrowse/info/Nipponbare/Chr01:1-10000/" target="_blank"> IRGSP1.0 </a></td>
+        				    <td style="height:44px"> Gramene (+Isoseq) </td>
+        				    <td> OsNip_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20GJ-temp:%20Nipponbare%20|%20IRGSP%201.0%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 38,404 </a></td>
+        				    <td> <a href="https://thericejournal.springeropen.com/articles/10.1186/1939-8433-6-4">Yoshihiro et al., 2013</a> </td>
+        				  </tr>
+        				  <tr>
+        				    <td style="height:44px"> MSU </td>
+        				    <td> LOC_Os </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20GJ-temp:%20Nipponbare%20|%20IRGSP%201.0%20|%20MSU&ogi=All%20Genes" target="_blank"> 55,801 </a></td>
+        				    <td> <a href="https://thericejournal.springeropen.com/articles/10.1186/1939-8433-6-4">Yoshihiro et al., 2013</a> </td>
+        				  </tr>
+        				  <tr>
+        				    <td style="height:44px"> RAP-db </td>
+        				    <td> Os </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20GJ-temp:%20Nipponbare%20|%20IRGSP%201.0%20|%20RAPdb&ogi=All%20Genes" target="_blank"> 37,859 </a></td>
+        				    <td> <a href="https://thericejournal.springeropen.com/articles/10.1186/1939-8433-6-4">Yoshihiro et al., 2013</a> </td>
+        				  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/Azucena/" target="_blank"> Azucena </a></td>
+        				    <td> <span style="font-style:italic;">Geng</span>-japonica-trop1 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/Azucena/Chr01:1-10000/" target="_blank"> AzucenaRS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsAzu_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20GJ-trop1:%20Azucena%20|%20AzucenaRS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 36,882 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/128077/" target="_blank"> KETAN NANGKA::IRGC 19961-2 </a></td>
+        				    <td> <span style="font-style:italic;text-align:left">Geng</span>-japonica-trop2 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/132278/Chr01:1-10000/" target="_blank"> Os128077RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsKeNa_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20GJ-trop2:%20KETAN%20NANGKA%20|%20Os128077RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 37,994 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/132278/" target="_blank"> CHAO MEO::IRGC 80273-1 </a></td>
+        				    <td> <span style="font-style:italic;">Geng</span>-japonica-subtrp </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/132278/Chr01:1-10000/" target="_blank"> Os132278RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsCMeo_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20GJ-subtrp:%20CHAO%20MEO%20|%20Os132278RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 37,240 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/117425/" target="_blank"> ARC 10497::IRGC 12485-1 </a></td>
+        				    <td> <span style="font-style:italic;">circum</span>-Basmati </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/117425/Chr01:1-10000/" target="_blank"> Os117425RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsARC_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20cB:%20ARC%2010497%20|%20Os117425RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 37,181 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/127742/" target="_blank"> PR 106::IRGC 53418-1 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-1B2 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/127742/Chr01:1-10000/" target="_blank"> Os127742RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsPr106_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-1B2:%20PR%20106%20|%20Os127742RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 36,720 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/MH63RS3/" target="_blank"> Minghui 63 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-adm </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/MH63RS3/Chr01:1-10000/" target="_blank"> MH63RS3 </a></td>
+        				    <td> HZAU </td>
+        				    <td> OsMH63_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-adm:%20Minghui%2063%20|%20MH63RS3%20|%20HZAU&ogi=All%20Genes" target="_blank"> 59,903 </a></td>
+        				    <td> <a href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(21)00230-6">Song et al., 2021</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/IR64/" target="_blank"> IR64 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-1B1 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/IR64/Chr01:1-10000/" target="_blank"> OsIR64RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsIR64_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-1B1:%20IR%2064%20|%20OsIR64RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 36,925 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/ZS97RS3/" target="_blank"> Zhenshan 97 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-1A </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/ZS97RS3/Chr01:1-10000/" target="_blank"> ZS97RS3 </a></td>
+        				    <td> HZAU </td>
+        				    <td> OsZS97_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-1A:%20%20Zhenshan%2097%20|%20ZS97RS3%20|%20HZAU&ogi=All%20Genes" target="_blank"> 60,935 </a></td>
+        				    <td> <a href="https://www.cell.com/molecular-plant/fulltext/S1674-2052(21)00230-6">Song et al., 2021</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/127564/" target="_blank"> LIMA::IRGC 81487-1 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-3A </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/127564/Chr01:1-10000/" target="_blank"> Os127564RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsLima_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-3A:%20LIMA%20|%20Os127564RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 37,994 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/127518/" target="_blank"> KHAO YAI GUANG::IRGC 65972-1 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-3B1 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/127518/Chr01:1-10000/" target="_blank"> Os127518RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsKYG_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-3B1:%20KHAO%20YAI%20GUANG%20|%20Os127518RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 37,522 </a></td>
+        				    <td> <a href=https://www.nature.com/articles/s41597-020-0438-2"">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/132424/" target="_blank"> GOBOL SAIL (BALAM)::IRGC 26624-2 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-2A </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/132424/Chr01:1-10000/" target="_blank"> Os132424RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsGoSa_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-2A:%20GOBOL%20SAIL%20|%20Os132424RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 36,467 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/125827/" target="_blank"> LIU XU::IRGC 109232-1 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-3B2 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/125827/Chr01:1-10000/" target="_blank"> Os125827RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsLiXu_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-3B2:%20LIU%20XU%20|%20Os125827RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 44,942 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/125619/" target="_blank"> LARHA MUGAD::IRGC 52339-1 </a></td>
+        				    <td> <span style="font-style:italic;">Xian</span>-indica-2B </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/125619/Chr01:1-10000/" target="_blank"> Os125619RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsLaMu_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20XI-2B:%20LARHA%20MUGAD%20|%20Os125619RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 37,474 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/117534/" target="_blank"> N22 </a></td>
+        				    <td> <span style="font-style:italic;">circum</span>-Aus1 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/117534/Chr01:1-10000/" target="_blank"> OsN22RS2 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsN22_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20cA1:%20N22%20|%20OsN22RS2%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 37,598 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41588-018-0040-0">Stein et al., 2018</a> </td>
+                  </tr>
+        				  <tr style="height:44px">
+        				    <td style="font-style:italic;text-align:left"><a href="https://riceome.hzau.edu.cn/variety/127652/" target="_blank"> NATEL BORO::IRGC 34749-1 </a></td>
+        				    <td> <span style="font-style:italic;">circum</span>-Aus2 </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/jbrowse/info/127652/Chr01:1-10000/" target="_blank"> Os127652RS1 </a></td>
+        				    <td> Gramene (+Isoseq) </td>
+        				    <td> OsNaBo_ </td>
+        				    <td><a href="https://riceome.hzau.edu.cn/m8/?navbar=Genes&sp=Os%20cA2:%20NATEL%20BORO%20|%20Os127652RS1%20|%20Gramene(+IsoSeq)&ogi=All%20Genes" target="_blank"> 36,392 </a></td>
+        				    <td> <a href="https://www.nature.com/articles/s41597-020-0438-2">Zhou et al., 2020</a> </td>
+                  </tr>
+
+                </table>
+              </center>
+            </div></div>
+            
+  </div></div></div></div>
+            </div></div></div></div></div>
+  
+</main>
+
+</body>
+</html>
+
