@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESKtides</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/eskape.css">
+
+
+	<link rel="stylesheet" type="text/css" href="../static/css/phylotree.css">
+	<script type="text/javascript" charset="utf8" src="../static/js/d3.v3.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="../static/js/underscore-min.js"></script>
+	<script type="text/javascript" charset="utf8" src="../static/js/phylotree.js"></script>
+</head>
+
+<style type="text/css">
+	.pace .pace-progress {
+	  background: #1E92FB; /*进度条颜色*/
+	  height: 3px;
+	}
+	.pace .pace-progress-inner {
+	  box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+	}
+	.pace .pace-activity {
+	  border-top-color: #1E92FB;    /*上边框颜色*/
+	  border-left-color: #1E92FB;    /*左边框颜色*/
+	}
+
+	#navbar a{
+	  color: #FAFAFA;
+	}
+	div {
+	  text-align: justify;
+	}
+</style>
+
+<body>
+<img src='../static/image/ESKtides.png'>
+  <!--Navigator-->
+  <nav class="navbar navbar-inverse navbar-static-top bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+           <a class="navbar-brand" href="/ESKtides">ESKtides</a>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+        <li><a href="/ESKtides">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Browse Genome<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">ESKAPE strains</li>
+              <li><a href="/strains1.html?strains=Staphylococcus_aureus">Staphylococcus aureus</a></li>
+              <li><a href="/strains1.html?strains=Enterococcus_Faecium">Enterococcus Faecium</a></li>
+              <li><a href="/strains1.html?strains=Klebsiella_pneumoniae">Klebsiella pneumoniae</a></li>
+              <li><a href="/strains1.html?strains=Acinetobacter_baumannii">Acinetobacter baumannii</a></li>
+			  <li><a href="/strains1.html?strains=Pseudomonas_aeruginosa">Pseudomonas aeruginosa</a></li>
+			  <li><a href="/strains1.html?strains=Enterobacter_aerogenes">Enterobacter aerogenes</a></li>
+			  <li><a href="/strains1.html?strains=Enterobacter_cloacae">Enterobacter cloacae</a></li>
+			  <li><a href="/strains1.html?strains=Escherichia_coli">Escherichia coli</a></li>
+
+
+              <li class="divider"></li>
+              <li class="dropdown-header">ESKAPE phages</li>
+			  <li><a href="/strains1.html?strains=Staphylococcus_aureus_phages">Staphylococcus aureus phages</a></li>
+              <li><a href="/strains1.html?strains=Enterococcus_Faecium_phages">Enterococcus Faecium phages</a></li>
+              <li><a href="/strains1.html?strains=Klebsiella_pneumoniae_phages">Klebsiella pneumoniae phages</a></li>
+              <li><a href="/strains1.html?strains=Acinetobacter_baumannii_phages">Acinetobacter baumannii phages</a></li>
+			  <li><a href="/strains1.html?strains=Pseudomonas_aeruginosa_phages">Pseudomonas aeruginosa phages</a></li>
+			  <li><a href="/strains1.html?strains=Escherichia_coli_phages">Escherichia coli phages</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Browse Peptides<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">ESKAPE strains</li>
+              <li><a href="/peptide.html?strains=Staphylococcus_aureus">Staphylococcus aureus</a></li>
+              <li><a href="/peptide.html?strains=Enterococcus_Faecium">Enterococcus Faecium</a></li>
+              <li><a href="/peptide.html?strains=Klebsiella_pneumoniae">Klebsiella pneumoniae</a></li>
+              <li><a href="/peptide.html?strains=Acinetobacter_baumannii">Acinetobacter baumannii</a></li>
+			  <li><a href="/peptide.html?strains=Pseudomonas_aeruginosa">Pseudomonas aeruginosa</a></li>
+			  <li><a href="/peptide.html?strains=Enterobacter_aerogenes">Enterobacter aerogenes</a></li>
+			  <li><a href="/peptide.html?strains=Enterobacter_cloacae">Enterobacter cloacae</a></li>
+			  <li><a href="/peptide.html?strains=Escherichia_coli">Escherichia coli</a></li>
+
+
+              <li class="divider"></li>
+              <li class="dropdown-header">ESKAPE phages</li>
+			  <li><a href="/peptide.html?strains=Staphylococcus_aureus_phages">Staphylococcus aureus phages</a></li>
+              <li><a href="/peptide.html?strains=Enterococcus_Faecium_phages">Enterococcus Faecium phages</a></li>
+              <li><a href="/peptide.html?strains=Klebsiella_pneumoniae_phages">Klebsiella pneumoniae phages</a></li>
+              <li><a href="/peptide.html?strains=Acinetobacter_baumannii_phages">Acinetobacter baumannii phages</a></li>
+			  <li><a href="/peptide.html?strains=Pseudomonas_aeruginosa_phages">Pseudomonas aeruginosa phages</a></li>
+			  <li><a href="/peptide.html?strains=Escherichia_coli_phages">Escherichia coli phages</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Analysis<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/predict.html">Peptides activity Prediction</a></li>
+                <li><a href="/phylotree.html">Peptides Phylogenetic tree</a></li>
+                <li><a href="/property.html">Physicochemical property</a></li>
+            </ul>
+        </li>
+        <li><a href="/statistics.html">Statistics</a></li>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="/help.html">Help</a></li>
+      </ul>
+    </div>
+  </nav>
+<!-- Page Content-->
+<style>
+      .left {
+        float: left;
+        width: 380px;
+      }
+      .right {
+        margin-left: 500px;
+      }
+</style>
+
+<div class="container">
+  <div class = "well" style="font-size: 16px;">
+   <h3 style="text-align:left">Genome Informations</h3>
+    <br>
+   <p><i class = "fa fa-info-circle"></i>
+       In this table,user can search basic informations for ESKAPE strains and phages
+   </p>
+      <hr>
+      <div class="left" id="imgID">
+      </div>
+      <div class="right">
+          <table class="table">
+            <tbody>
+                <tr>
+                    <td><b id="Latin"></b></td>
+                    <td id="latin"></td>
+                </tr>
+                <tr>
+                    <td><b id="Genus"></b></td>
+                    <td id="genus"></td>
+                </tr>
+                  <tr>
+                    <td><b id="Dis"></b></td>
+                    <td id="dis"></td>
+                </tr>
+                  <tr>
+                    <td><b id="Gram"></b></td>
+                    <td id="gram"></td>
+                </tr>
+                <tr>
+                    <td colspan="3" id="contact">
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+      </div>
+  </div>
+</div>
+<br>
+<hr>
+<!-- Page Content-->
+<div class="container">
+	<br>
+    <h3 id='name' style="text-align:left"></h3>
+	<br>
+	<hr>
+    <table class="table table-bordered table-hover" id="peptides" width="100%">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Accession</th>
+                <th>Strains</th>
+                <th>Length</th>
+                <th>Genome level</th>
+                <th>ORF number</th>
+                <th>Detail</th>
+                <th>Download faa</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <br>
+    <br>
+</div>
+<br>
+<hr>
+<div class="container">
+	<br>
+    <h3 style="text-align:left">Genome network</h3>
+    <div class = "well" style="font-size: 16px;">
+       <p><i class = "fa fa-info-circle"></i>
+           In this network,user can discover Genome relationships and PGHs distributions
+       </p>
+    </div>
+	<hr>
+    <div id="svg">
+    </div>
+    <br>
+    <br>
+</div>
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Firefox & Chrome recommended.<br />
+      &copy; All rights reserved by <a target="_blank" href="https://lijinquanlab.github.io/index.html">Jinquan Li's Lab</a>, HZAU.</p>
+  </div>
+</footer>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',function(){//生命周期函数，注意顺序
+      let url = window.location.href;
+      let urlParams = url.split('?')[1]
+      let obj = {}
+      if(urlParams){
+        let arr = urlParams.split('&');
+        for(let i = 0; i < arr.length; i++) {
+          let params = arr[i].split('=')
+          obj[params[0]] = params[1]
+        }
+	  if(obj.strains.split('_')[2]=='phages'){
+		var name = obj.strains.split('_')[0] + ' ' + obj.strains.split('_')[1] + ' ' + obj.strains.split('_')[2] + ' Genome';
+		console.log(name)
+	  }
+	  else{
+		var name = obj.strains.split('_')[0] + ' ' + obj.strains.split('_')[1] + ' Genome' ;
+		console.log(name)
+	  }
+    }
+	$("#name").html(name);
+
+    if(name == 'Staphylococcus aureus Genome'){
+        var svg = '<embed src="../static/image/Staphylococcus_aureus.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = '<img src="../static/image/S_aureus.jpg" style="width: 480px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Staphylococcus aureus');
+        $("#genus").html('Staphylococcus');
+        $("#dis").html('Anywhere');
+        $("#gram").html('Gram-positive bacteria');
+        var contact_table = 'Staphylococcus aureus is a common foodborne pathogen and widely exists in natural environment.Under the right conditions, Staphylococcus aureus can produce enterotoxin and cause food poisoning.Reports of food poisoning caused by Staphylococcus aureus are numerous.Staphylococcus aureus accounts for about 25% of foodborne microbial food poisoning incidents,and Staphylococcus aureus is the third largest microbial cause after salmonella and parahemolyticus.';
+        $("#contact").html(contact_table);
+	  }
+    else if(name == 'Enterococcus Faecium Genome'){
+        var svg = '<embed src="../static/image/Enterococcus_Faecium.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/E_Faecium.png" style="width: 480px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Enterococcus Faecium');
+        $("#genus").html('Enterococcus genus');
+        $("#dis").html('Human and animal intestines');
+        $("#gram").html('Gram-positive bacteria');
+        var contact_table = 'Enterococcus faecium is a round or oval, single, paired or short chain of gram-positive coccus, no spore, no flagellate, aerobic or facultative anaerobic bacteria, observed under oil microscope Enterococcus faecium body is more solitary, less opposite and chain. Enterococcus faecium has high nutritional requirements. After being cultured at 37℃ on the blood plate for 18h, it can form pale, opaque, smooth and round colonies with a diameter of 0.5 ~ 1mm without hemolysis. It can grow rapidly in YPD and MRS Medium.';
+        $("#contact").html(contact_table);
+	  }
+    else if(name == 'Klebsiella pneumoniae Genome'){
+        var svg = '<embed src="../static/image/Klebsiella_pneumoniae.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/K_pneumoniae.png" style="width: 480px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Klebsiella pneumoniae');
+        $("#genus").html('Klebsiella');
+        $("#dis").html('Human and non-human primates');
+        $("#gram").html('Gram-negative bacteria');
+        var contact_table = 'Klebsiella pneumoniae is Gram-negative, non-motility, encapsulated baculobacter that is present in the nasopharynx and gastrointestinal tract of human and non-human primates. It belongs to Klebsiella and Enterobacteriaceae. It is facultative anaerobic, negative for oxidase, and produces acids and gases from lactose. It is an intestinal bacterium that is found in the gut of 5% of healthy people. It can also reside in the skin and mouth.Klebsiella pneumoniae can occur naturally in the gut and respiratory tract of healthy individuals, and infections rarely occur in people with healthy immune systems.';
+        $("#contact").html(contact_table);
+	  }
+    else if(name == 'Acinetobacter baumannii Genome'){
+        var svg = '<embed src="../static/image/Acinetobacter_baumannii.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/A_baumannii.png" style="width: 480px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Acinetobacter baumannii');
+        $("#genus").html('Acinetobacter genus');
+        $("#dis").html('Natural water and soil,hospital environment and human skin');
+        $("#gram").html('Gram-negative bacteria');
+        var contact_table = 'Acinetobacter baumannii is a strictly aerobic, non-lactose fermentation conditional pathogen, no flagellate, not high mobility, but strong vitality, can exist widely in nature. This bacterium is a common nosocomial infection in Acinetobacter and is also a pathogen of aquaculture animals.Acinetobacter Baumannii has become a major source of hospital infections, especially in intensive care units. Due to the overuse of antibiotics, the bacterium has become resistant to Acinetobacter baumannii and become "multidrug-resistant Acinetobacter Baumannii". The only way to combat multidrug-resistant Acinetobacter baumannii is with a back-line antibiotic like tigeromycin.';
+        $("#contact").html(contact_table);
+    }
+    else if(name == 'Pseudomonas aeruginosa Genome'){
+        var svg = '<embed src="../static/image/Pseudomonas_aeruginosa.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/P_aeruginosa.png" style="width: 480px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Pseudomonas aeruginosa');
+        $("#genus").html('Pseudomonas');
+        $("#dis").html('The wet environment');
+        $("#gram").html('Gram-negative bacteria');
+        var contact_table = 'Pseudomonas aeruginosa is a common opportunistic pathogen, belonging to non-fermented Gram-negative bacillus. Thalli are slender and of different lengths, sometimes ball rod or linear, paired or short chain arrangement. There is a single flagella at one end of the thalli, and the bacteria are active when observed under dark field microscope or phase contrast microscope. Pseudomonas aeruginosa is an obligate aerobic bacterium, the growth temperature range is 25~42℃, and the optimum growth temperature is 25~30℃.';
+        $("#contact").html(contact_table);
+    }
+     else if(name == 'Enterobacter aerogenes Genome'){
+        var svg = '<embed src="../static/image/Enterobacter_aerogenes.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/E_aerogenes.png" style="width: 480px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Enterobacter aerogenes');
+        $("#genus").html('Enteroaerobacter');
+        $("#dis").html('Animal intestines,feces,river water,soil and feed');
+        $("#gram").html('Gram-negative bacteria');
+        var contact_table = 'Enterobacter aerogenes live mainly in the intestines of humans and animals. The normal flora of the human body only occasionally causes disease under special circumstances when the human body is weak. It also lives in water, soil and spoilage. But you can survive alone. Enterobacteriaceae can adapt to a wide range of temperatures, between 15 and 40℃. Enterobacter aerogenes is most suitable to grow in the temperature of 30℃, pH=7 environment. Enterobacter aerobacter is widely found in water, soil and other environments. It can cause urinary tract infection, respiratory tract infection, wound infection, sepsis and other diseases.';
+        $("#contact").html(contact_table);
+    }
+     else if(name == 'Enterobacter cloacae Genome'){
+        var svg = '<embed src="../static/image/Enterobacter_cloacae.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Enterobacter cloacae');
+        $("#genus").html('Enterobacterium');
+        $("#dis").html('Human and animal feces water, soil, plants');
+        $("#gram").html('Gram-negative bacteria');
+        var contact_table = 'Enterobacter cloacae exists widely in nature. It can be detected in human and animal feces, water, soil and plants as one of the normal intestinal bacteria, but can be used as conditional pathogenic bacteria. With the widespread use of cephalosporins, Enterobacter cloacae has become an increasingly important pathogen of nosocomial infection. The bacterial infectious diseases caused by enterobacter cloacae often involve multiple organ systems. The serious drug resistance of E. cloacae to extend-spectrum β-lactamases (ESBLs) and Amp C enzymes, including skin and soft tissue infections, urinary tract infections, respiratory infections and septicemia, poses new challenges for clinical treatment.';
+        $("#contact").html(contact_table);
+    }
+     else if(name == 'Escherichia coli Genome'){
+        var svg = '<embed src="../static/image/Escherichia_coli.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/E_coli.png" style="width: 480px;">';
+        $("#imgID").html(img);
+        $("#Latin").html('Latin:');
+        $("#Genus").html('Genus:');
+        $("#Dis").html('Distribution:');
+        $("#Gram").html('Gram:');
+
+        $("#latin").html('Escherichia coli');
+        $("#genus").html('Eschella');
+        $("#dis").html('Human and animal intestinal normal host');
+        $("#gram").html('Gram-negative bacteria');
+        var contact_table = 'Escherichia coli is a short bacterium with blunt rounded ends and gram negative. Sometimes because of the different environment, individual thalli appear approximately spherical rod or long filament; E. coli are usually found in single or two, but they do not form long chains. Most E. coli strains have capsular or microcapsular structure, but can not form spores. Most E. coli strains grow pili, some of which are host-specific pili that have adhesion to the host and some other tissues or cells. The biochemical metabolism of E. coli is very active. Escherichia coli can ferment glucose to produce acid and gas, individual strains do not produce gas, Escherichia coli can also ferment a variety of carbohydrates, can also use a variety of organic acid salts.';
+        $("#contact").html(contact_table);
+    }
+
+
+    else if(name == 'Staphylococcus aureus phages Genome'){
+        var svg = '<embed src="../static/image/Staphylococcus_aureus_phages.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/phage1.png" style="width: 410px;height: 200px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Phages:');
+        $("#Genus").html('Host:');
+        $("#Dis").html('Consrtm:');
+        $("#Gram").html('Reference type:');
+
+        $("#latin").html('Staphylococcus aureus phages');
+        $("#genus").html('Staphylococcus aureus');
+        $("#dis").html('NCBI Genome Project');
+        $("#gram").html('RefSeq');
+	  }
+    else if(name =='Enterococcus Faecium phages Genome'){
+        var svg = '<embed src="../static/image/Enterococcus_Faecium_phages.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/phage2.png" style="width: 410px;height: 200px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Phages:');
+        $("#Genus").html('Host:');
+        $("#Dis").html('Consrtm:');
+        $("#Gram").html('Reference type:');
+
+        $("#latin").html('Enterococcus Faecium phages');
+        $("#genus").html('Enterococcus Faecium');
+        $("#dis").html('NCBI Genome Project');
+        $("#gram").html('RefSeq');
+	  }
+    else if(name =='Klebsiella pneumoniae phages Genome'){
+        var svg = '<embed src="../static/image/Klebsiella_pneumoniae_phages.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/phage3.png" style="width: 410px;height: 200px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Phages:');
+        $("#Genus").html('Host:');
+        $("#Dis").html('Consrtm:');
+        $("#Gram").html('Reference type:');
+
+        $("#latin").html('Klebsiella pneumoniae phages');
+        $("#genus").html('Klebsiella pneumoniae');
+        $("#dis").html('NCBI Genome Project');
+        $("#gram").html('RefSeq');
+	  }
+    else if(name =='Acinetobacter baumannii phages Genome'){
+        var svg = '<embed src="../static/image/Acinetobacter_baumannii_phages.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/phage4.png" style="width: 410px;height: 200px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Phages:');
+        $("#Genus").html('Host:');
+        $("#Dis").html('Consrtm:');
+        $("#Gram").html('Reference type:');
+
+        $("#latin").html('Acinetobacter baumannii phages');
+        $("#genus").html('Acinetobacter baumannii');
+        $("#dis").html('NCBI Genome Project');
+        $("#gram").html('RefSeq');
+    }
+    else if(name =='Pseudomonas aeruginosa phages Genome'){
+        var svg = '<embed src="../static/image/Pseudomonas_aeruginosa_phages.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = '<img src="../static/image/phage5.png" style="width: 410px;height: 200px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Phages:');
+        $("#Genus").html('Host:');
+        $("#Dis").html('Consrtm:');
+        $("#Gram").html('Reference type:');
+
+        $("#latin").html('Pseudomonas aeruginosa phages');
+        $("#genus").html('Pseudomonas aeruginosa');
+        $("#dis").html('NCBI Genome Project');
+        $("#gram").html('RefSeq');
+    }
+     else if(name =='Escherichia coli phages Genome'){
+        var svg = '<embed src="../static/image/Escherichia_coli_phages.svg" type="image/svg+xml" align="center">';
+        $("#svg").html(svg);
+        var img = ' <img src="../static/image/phage6.png" style="width: 410px;height: 200px">';
+        $("#imgID").html(img);
+        $("#Latin").html('Phages:');
+        $("#Genus").html('Host:');
+        $("#Dis").html('Consrtm:');
+        $("#Gram").html('Reference type:');
+
+        $("#latin").html('Escherichia coli phages');
+        $("#genus").html('Escherichia coli');
+        $("#dis").html('NCBI Genome Project');
+        $("#gram").html('RefSeq');
+    }
+
+},false);
+
+$(document).ready(function(){ //生命周期函数，注意顺序
+  $('#peptides').DataTable({
+        //"retrieve": true,
+        "serverSide":true,
+        "searching":true,
+        "processing":true,
+        "paging":true,
+        //"bServerSide":true,
+        //"bProcessing":true,
+        //"bPaginate":true,
+        "ordering":true,
+        "lengthMenu": [15],
+        ajax: {
+            url: 'http://113.57.10.23:9000/strain_ajax/',
+            type: "GET",
+            data: function(d){// 添加额外的参数传递到后台
+                d.extra_search = $('#name').text();
+            }
+        },
+        dom:'Bfrtip',
+        buttons:[
+          'copy','csv','excel','pdf','print'
+        ],
+        "columns":[
+          {'data':'Number'},
+          {'data':'Accession',
+            render: function(data, type, row) {
+                  return '<a href="https://www.ncbi.nlm.nih.gov/labs/gquery/all/?term=' + row.Accession + '"/>' +
+                  data + '</a>';}
+          },
+          {'data':'Strains'},
+          {'data':'Length'},
+          {'data':'Genome_level'},
+          {'data':'ORF_number'},
+          {'data':'Detail',
+              render: function(data, type, row) {
+                  return '<a href="http://113.57.10.23:9000/detail/' +
+                      row.Detail + '?strains=' + row.Accession + '">' +
+                      data + '</a>';
+                  }
+          },
+          {'data':'Download_faa',
+              render: function(data, type, row) {
+                 return '<a href="../static/faa/' + row.Accession + '.faa' + '">' +
+                      data + '</a>';
+                  }
+          }
+        ],
+     });
+});
+
+</script>
+
+</body>
+</html>

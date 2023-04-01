@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESKtides</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/eskape.css">
+</head>
+
+<style type="text/css">
+    .pace .pace-progress {
+      background: #1E92FB; /*进度条颜色*/
+      height: 3px;
+    }
+    .pace .pace-progress-inner {
+      box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+      border-top-color: #1E92FB;    /*上边框颜色*/
+      border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+
+    #navbar a{
+      color: #FAFAFA;
+    }
+    div {
+      text-align: justify;
+    }
+</style>
+
+<body>
+<img src='../static/image/ESKtides.png'>
+  <!--Navigator-->
+  <nav class="navbar navbar-inverse navbar-static-top bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/ESKtides">ESKtides</a>
+  
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+        <li><a href="/ESKtides">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Browse Genome<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">ESKAPE strains</li>
+              <li><a href="/strains1.html?strains=Staphylococcus_aureus">Staphylococcus aureus</a></li>
+              <li><a href="/strains1.html?strains=Enterococcus_Faecium">Enterococcus Faecium</a></li>
+              <li><a href="/strains1.html?strains=Klebsiella_pneumoniae">Klebsiella pneumoniae</a></li>
+              <li><a href="/strains1.html?strains=Acinetobacter_baumannii">Acinetobacter baumannii</a></li>
+			  <li><a href="/strains1.html?strains=Pseudomonas_aeruginosa">Pseudomonas aeruginosa</a></li>
+			  <li><a href="/strains1.html?strains=Enterobacter_aerogenes">Enterobacter aerogenes</a></li>
+			  <li><a href="/strains1.html?strains=Enterobacter_cloacae">Enterobacter cloacae</a></li>
+			  <li><a href="/strains1.html?strains=Escherichia_coli">Escherichia coli</a></li>
+
+
+              <li class="divider"></li>
+              <li class="dropdown-header">ESKAPE phages</li>
+			  <li><a href="/strains1.html?strains=Staphylococcus_aureus_phages">Staphylococcus aureus phages</a></li>
+              <li><a href="/strains1.html?strains=Enterococcus_Faecium_phages">Enterococcus Faecium phages</a></li>
+              <li><a href="/strains1.html?strains=Klebsiella_pneumoniae_phages">Klebsiella pneumoniae phages</a></li>
+              <li><a href="/strains1.html?strains=Acinetobacter_baumannii_phages">Acinetobacter baumannii phages</a></li>
+			  <li><a href="/strains1.html?strains=Pseudomonas_aeruginosa_phages">Pseudomonas aeruginosa phages</a></li>
+			  <li><a href="/strains1.html?strains=Escherichia_coli_phages">Escherichia coli phages</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Browse Peptides<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">ESKAPE strains</li>
+              <li><a href="/peptide.html?strains=Staphylococcus_aureus">Staphylococcus aureus</a></li>
+              <li><a href="/peptide.html?strains=Enterococcus_Faecium">Enterococcus Faecium</a></li>
+              <li><a href="/peptide.html?strains=Klebsiella_pneumoniae">Klebsiella pneumoniae</a></li>
+              <li><a href="/peptide.html?strains=Acinetobacter_baumannii">Acinetobacter baumannii</a></li>
+			  <li><a href="/peptide.html?strains=Pseudomonas_aeruginosa">Pseudomonas aeruginosa</a></li>
+			  <li><a href="/peptide.html?strains=Enterobacter_aerogenes">Enterobacter aerogenes</a></li>
+			  <li><a href="/peptide.html?strains=Enterobacter_cloacae">Enterobacter cloacae</a></li>
+			  <li><a href="/peptide.html?strains=Escherichia_coli">Escherichia coli</a></li>
+
+
+              <li class="divider"></li>
+              <li class="dropdown-header">ESKAPE phages</li>
+			  <li><a href="/peptide.html?strains=Staphylococcus_aureus_phages">Staphylococcus aureus phages</a></li>
+              <li><a href="/peptide.html?strains=Enterococcus_Faecium_phages">Enterococcus Faecium phages</a></li>
+              <li><a href="/peptide.html?strains=Klebsiella_pneumoniae_phages">Klebsiella pneumoniae phages</a></li>
+              <li><a href="/peptide.html?strains=Acinetobacter_baumannii_phages">Acinetobacter baumannii phages</a></li>
+			  <li><a href="/peptide.html?strains=Pseudomonas_aeruginosa_phages">Pseudomonas aeruginosa phages</a></li>
+			  <li><a href="/peptide.html?strains=Escherichia_coli_phages">Escherichia coli phages</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Analysis<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/predict.html">Peptides activity Prediction</a></li>
+                <li><a href="/phylotree.html">Peptides Phylogenetic tree</a></li>
+                <li><a href="/property.html">Physicochemical property</a></li>
+            </ul>
+        </li>
+        <li><a href="/statistics.html">Statistics</a></li>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="/help.html">Help</a></li>
+      </ul>
+    </div>
+  </nav>
+<!-- Page Content-->
+<div class="container">
+   <h3 style="text-align:left">Welcome to ESKtides</h3>
+    <br>
+   <div class = "well" style="font-size: 16px;">
+       <h4>The importance of ESKtides:</h4>
+       <hr>
+        <p><i class = "fa fa-info-circle"></i>
+            Antibiotic resistance is one of the biggest threats in global health, food security and development,
+            antimicrobial peptide(AMPs) possess exceptional structural and functional variety,
+            natural AMPs have been proposed as promising alternatives to traditional antibiotics and as potential next-generation antimicrobial agents <b>(<em>Payel Das et al 2021</em>)</b>.
+            ESKAPE is a huge challenge for public health. AMPs mined from the host often have good bactericidal effect on the host.
+            In this study, We mined natural peptides based on ESKAPE peptidoglycan hydrolases based on ESKAPE strains and their phages.
+        </p>
+        <br>
+        <p><i class = "fa fa-info-circle"></i>
+            What's in ESKtides:<br><br>
+            <div style="text-indent: 2em;">
+                <ui>
+                    <li><b>8</b> kinds of ESKAPE strains and <b>6</b> kinds of ESKAPE phages;</li>
+                    <li>Totally, <b>5,630</b> ESKAPE strains and <b>1,179</b> ESKAPE phages;</li>
+                    <li><b>25,962,839</b> annotations;</li>
+                    <li><b>22,091,402</b> active peptides and <b>12,067,248</b> high active peptides;</li>
+                </ui>
+            </div>
+        </p>
+        <br>
+        <p><i class = "fa fa-info-circle"></i>
+            In ESKtides, users can:<br><br>
+            <div style="text-indent: 2em;">
+                <ui>
+                    <li>Browse or search ESKAPE strains and phages annotation and filter by user-defined;</li>
+                    <li>Browse or search ESKAPE derived peptides and find out peptides sequences;</li>
+                    <li>Online tools for peptides mining, peptides phylogenetic tree and peptides chemical properties;</li>
+                    <li>Download the ESKtides analysis results of a total of ESKAPE datasets both in strains and phages; </li>
+                    <li>Download page contains the different levels ESKAPE drived peptides in ESKAPE strains and phages.</li>
+                </ui>
+            </div>
+        </p>
+    </div>
+</div>
+<br>
+<hr>
+<div class="container">
+    <h3 style="text-align:left">Pipeline and our goal</h3>
+    <!-- Content Row-->
+    <div class="row">
+	<div class="col-md-4 mb-8">
+	<img src='../static/image/pipeline.png' width='315%'>
+    </div>
+      <br>
+      <br>
+	</div>
+	 <br>
+     <br>
+     <br>
+	<div class="row align-items-center" style="font-size: large;">
+      <p>ESKtides (<strong>ESKAPE </strong> <strong>derived peptides</strong> <strong>database</strong>): Under the concept of one health, human beings are constantly pursuing a completely new state: the optimal health of people.Antibiotic resistance is one of the biggest threats in global health, food security and development, animals and the environment. Phage lysin is a kind of enzyme synthesized by host bacteria, which has strong host specificity and can hydrolyze the cell wall of bacteria efficiently. The length of antimicrobial peptides is about 6-50 aa, shorter than that of lysin, and easier to be absorbed by the body. In this study, a new antimicrobial peptide mining method based on phage lysins was proposed, we developed a workflow based on phage lysins to mine phage-derived peptide, and used a deep learning model to score bactericidal activity of phage.<br>
+	  <br>
+	  <br>
+	  <a class="btn btn-primary" href="help.html">Go to Help</a>
+	</div>		
+</div>
+<br>
+<br>
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Firefox & Chrome recommended.<br />
+      &copy; All rights reserved by <a target="_blank" href="https://lijinquanlab.github.io/index.html">Jinquan Li's Lab</a>, HZAU.</p>
+  </div>
+</footer>
+</body> 
+</html> 

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESKtides</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/eskape.css">
+
+
+	<link rel="stylesheet" type="text/css" href="../static/css/phylotree.css">
+	<script type="text/javascript" charset="utf8" src="../static/js/d3.v3.min.js"></script>
+	<script type="text/javascript" charset="utf8" src="../static/js/underscore-min.js"></script>
+	<script type="text/javascript" charset="utf8" src="../static/js/phylotree.js"></script>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cgview/dist/cgview.min.js"></script>
+
+    <link rel="stylesheet" href="../static/css/cgview.css">
+    <link rel="stylesheet" href="https://js.cgview.ca/styles/controls.css">
+
+</head>
+
+<style type="text/css">
+	.pace .pace-progress {
+	  background: #1E92FB; /*进度条颜色*/
+	  height: 3px;
+	}
+	.pace .pace-progress-inner {
+	  box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+	}
+	.pace .pace-activity {
+	  border-top-color: #1E92FB;    /*上边框颜色*/
+	  border-left-color: #1E92FB;    /*左边框颜色*/
+	}
+
+	#navbar a{
+	  color: #FAFAFA;
+	}
+	div {
+	  text-align: justify;
+	}
+</style>
+
+<body>
+ <img src='../static/image/ESKtides.png'>
+  <!--Navigator-->
+  <nav class="navbar navbar-inverse navbar-static-top bg-dark">
+    <div class="container">
+      <div class="navbar-header">
+           <a class="navbar-brand" href="/ESKtides">ESKtides</a>
+
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+       <ul class="nav navbar-nav navbar-right collapse navbar-collapse">
+        <li><a href="/ESKtides">Home</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Browse Genome<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">ESKAPE strains</li>
+              <li><a href="/strains1.html?strains=Staphylococcus_aureus">Staphylococcus aureus</a></li>
+              <li><a href="/strains1.html?strains=Enterococcus_Faecium">Enterococcus Faecium</a></li>
+              <li><a href="/strains1.html?strains=Klebsiella_pneumoniae">Klebsiella pneumoniae</a></li>
+              <li><a href="/strains1.html?strains=Acinetobacter_baumannii">Acinetobacter baumannii</a></li>
+			  <li><a href="/strains1.html?strains=Pseudomonas_aeruginosa">Pseudomonas aeruginosa</a></li>
+			  <li><a href="/strains1.html?strains=Enterobacter_aerogenes">Enterobacter aerogenes</a></li>
+			  <li><a href="/strains1.html?strains=Enterobacter_cloacae">Enterobacter cloacae</a></li>
+			  <li><a href="/strains1.html?strains=Escherichia_coli">Escherichia coli</a></li>
+
+
+              <li class="divider"></li>
+              <li class="dropdown-header">ESKAPE phages</li>
+			  <li><a href="/strains1.html?strains=Staphylococcus_aureus_phages">Staphylococcus aureus phages</a></li>
+              <li><a href="/strains1.html?strains=Enterococcus_Faecium_phages">Enterococcus Faecium phages</a></li>
+              <li><a href="/strains1.html?strains=Klebsiella_pneumoniae_phages">Klebsiella pneumoniae phages</a></li>
+              <li><a href="/strains1.html?strains=Acinetobacter_baumannii_phages">Acinetobacter baumannii phages</a></li>
+			  <li><a href="/strains1.html?strains=Escherichia_coli_phages">Escherichia coli phages</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Browse Peptides<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+              <li class="dropdown-header">ESKAPE strains</li>
+              <li><a href="/peptide.html?strains=Staphylococcus_aureus">Staphylococcus aureus</a></li>
+              <li><a href="/peptide.html?strains=Enterococcus_Faecium">Enterococcus Faecium</a></li>
+              <li><a href="/peptide.html?strains=Klebsiella_pneumoniae">Klebsiella pneumoniae</a></li>
+              <li><a href="/peptide.html?strains=Acinetobacter_baumannii">Acinetobacter baumannii</a></li>
+			  <li><a href="/peptide.html?strains=Pseudomonas_aeruginosa">Pseudomonas aeruginosa</a></li>
+			  <li><a href="/peptide.html?strains=Enterobacter_aerogenes">Enterobacter aerogenes</a></li>
+			  <li><a href="/peptide.html?strains=Enterobacter_cloacae">Enterobacter cloacae</a></li>
+			  <li><a href="/peptide.html?strains=Escherichia_coli">Escherichia coli</a></li>
+
+
+              <li class="divider"></li>
+              <li class="dropdown-header">ESKAPE phages</li>
+			  <li><a href="/peptide.html?strains=Staphylococcus_aureus_phages">Staphylococcus aureus phages</a></li>
+              <li><a href="/peptide.html?strains=Enterococcus_Faecium_phages">Enterococcus Faecium phages</a></li>
+              <li><a href="/peptide.html?strains=Klebsiella_pneumoniae_phages">Klebsiella pneumoniae phages</a></li>
+              <li><a href="/peptide.html?strains=Acinetobacter_baumannii_phages">Acinetobacter baumannii phages</a></li>
+			  <li><a href="/peptide.html?strains=Pseudomonas_aeruginosa_phages">Pseudomonas aeruginosa phages</a></li>
+			  <li><a href="/peptide.html?strains=Escherichia_coli_phages">Escherichia coli phages</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              Analysis<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="/predict.html">Peptides activity Prediction</a></li>
+                <li><a href="/phylotree.html">Peptides Phylogenetic tree</a></li>
+                <li><a href="/property.html">Physicochemical property</a></li>
+            </ul>
+        </li>
+        <li><a href="/statistics.html">Statistics</a></li>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="/help.html">Help</a></li>
+      </ul>
+    </div>
+  </nav>
+<!-- Page Content-->
+ <div class="container">
+  <div class = "well" style="font-size: 16px;">
+   <h3 style="text-align:left">Annotation Informations</h3>
+    <br>
+   <p><i class = "fa fa-info-circle"></i>
+       In this page,user can view genome circos for ESKAPE strains and phages,and genome annotation
+   </p>
+  </div>
+</div>
+<br>
+<hr>
+<!-- Page Content-->
+<div class="container">
+    <br>
+    <h3 style="text-align:left">Genome circos visibilization</h3>
+    <hr>
+    <br>
+    <h4 id='name' style="text-align:center"></h4>
+	<br>
+	<br>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+
+              <div id="my-viewer"></div>
+                <br>
+              <div class="cgv-controls">
+                <div class="cgv-btn" id="btn-reset" title="Reset Map"></div>
+                <div class="cgv-btn" id="btn-zoom-in" title="Zoom In"></div>
+                <div class="cgv-btn" id="btn-zoom-out" title="Zoom Out"></div>
+                <div class="cgv-btn" id="btn-move-left" title="Move Left/Counterclockwise"></div>
+                <div class="cgv-btn" id="btn-move-right" title="Move Right/Clockwise"></div>
+                <div class="cgv-btn" id="btn-toggle-format" title="Toggle Linear/Circular Format"></div>
+                <div class="cgv-btn" id="btn-invert-colors" title="Invert Map Colors"></div>
+                <div class="cgv-btn" id="btn-random-feature" title="Move to Random Feature"></div>
+                <div class="cgv-btn" id="btn-download" title="Download Map PNG"></div>
+                <div class="cgv-btn" id="btn-toggle-labels" title="Toggle Labels"></div>
+                <div class="cgv-btn" id="btn-animate" title="Start/Stop Animation"></div>
+              </div>
+
+            <div id='example-tables'></div>
+            <script src="https://js.cgview.ca/scripts/controls.js"></script> {#controls.js一定要放入js脚本地下,否则失效#}
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+ <hr>
+ <div class="container">
+     <br>
+     <h3 style="text-align:left">Genome annotation</h3>
+     <hr>
+     <br>
+	 <br>
+ </div>
+ <div class="container">
+     <table class="table table-bordered table-hover" id="peptides" width="100%">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Locus tag</th>
+                <th>Ftype</th>
+                <th>Length</th>
+                <th>Gene</th>
+                <th>EC number</th>
+                <th>COG</th>
+                <th>Product</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <h4 style="text-align:left">Sorry, the loading data is too large, please wait for about half a minute.</h4>
+</div>
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){//生命周期函数，注意顺序
+      let url = window.location.href;
+      let urlParams = url.split('?')[1]
+      let obj = {}
+      if(urlParams){
+        let arr = urlParams.split('&');
+        for(let i = 0; i < arr.length; i++) {
+          let params = arr[i].split('=')
+          obj[params[0]] = params[1]
+        }
+      var name = obj.strains + ' ' + 'Genome';
+	  console.log(name)
+    }
+	$("#name").html(name);
+
+
+   // circos plot
+   var json = obj.strains;
+   cgv = new CGV.Viewer('#my-viewer', {
+                    height: 850,
+                    width: 1000,
+                });
+
+    var request = new XMLHttpRequest();
+    request.open('GET', '../static/json/' + json + '.json', true);
+    request.onload = function() {
+      var response = request.response;
+      const json = JSON.parse(response);
+      cgv.io.loadJSON(json);
+      cgv.draw()
+    };
+    request.send();
+
+    onClick = function(id, func) {
+        const btn = document.getElementById(id);
+        btn.addEventListener('click', func);
+    }
+
+
+    onClick('btn-reset', () => {
+      cgv.reset();
+    });
+
+
+    onClick('btn-zoom-in', () => {
+       cgv.zoomIn()
+    });
+    onClick('btn-zoom-out', () => {
+       cgv.zoomOut()
+    });
+
+
+    onClick('btn-move-left', () => {
+      cgv.moveLeft();
+    });
+    onClick('btn-move-right', () => {
+      cgv.moveRight();
+    });
+
+
+    onClick('btn-toggle-format', () => {
+      const format = (cgv.format == 'circular') ? 'linear' : 'circular';
+      cgv.settings.update({ format: format });
+      cgv.draw();
+    });
+
+
+    onClick('btn-invert-colors', () => {
+      cgv.invertColors();
+    });
+
+
+    onClick('btn-random-feature', () => {
+      const number = Math.ceil(Math.random() * cgv.features().length);
+      const feature = cgv.features(number);
+      feature.moveTo(1500);
+    });
+
+
+    onClick('btn-download', () => {
+      const height = 2000;
+      const width = cgv.width / cgv.height * height;
+      cgv.io.downloadImage(width, height, 'cgview_map.png');
+    });
+
+
+    onClick('btn-toggle-labels', () => {
+      cgv.annotation.update({visible: !cgv.annotation.visible});
+      cgv.draw();
+    });
+
+
+    onClick('btn-animate', () => {
+      cgv.isAnimating ? cgv.stopAnimate() : cgv.animate();
+    });
+
+    cgv.draw();
+
+},false);
+
+$(document).ready(function(){//生命周期函数，注意顺序
+    $('#peptides').DataTable({
+        //"retrieve": true,
+        "serverSide":true,
+        "searching":true,
+        "processing":true,
+        "paging":true,
+        //"bServerSide":true,
+        //"bProcessing":true,
+        //"bPaginate":true,
+        "ordering":true,
+        "lengthMenu": [15],
+        ajax: {
+            url: 'http://113.57.10.23:9000/annotate_ajax/',
+            timeout: 6000000000,
+            type: "GET",
+            data: function(d){// 添加额外的参数传递到后台
+                var id = $('#name').text();
+                d.extra_search = id.split(' ')[0];
+            }
+        },
+        dom:'Bfrtip',
+        buttons:[
+          'copy','csv','excel','pdf','print'
+        ],
+        "columns":[
+              {'data':'Number'},
+              {'data':'Locus_tag'},
+              {'data':'Ftype'},
+              {'data':'Length'},
+              {'data':'Gene'},
+              {'data':'EC_number'},
+              {'data':'COG'},
+              {'data':'Product'}
+        ],
+    })
+});
+</script>
+
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Firefox & Chrome recommended.<br />
+      &copy; All rights reserved by <a target="_blank" href="https://lijinquanlab.github.io/index.html">Jinquan Li's Lab</a>, HZAU.</p>
+  </div>
+</footer>
+
+</body> 
+</html> 
