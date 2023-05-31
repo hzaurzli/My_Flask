@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<script src="http://ebi-uniprot.github.io/CDN/protvista/protvista.js"></script>
+	<link href="http://ebi-uniprot.github.io/CDN/protvista/css/main.css" rel="stylesheet"/>
+</head>
+
+<body>
+	<div id=yourDiv></div>
+<script>
+	window.onload = function() {
+    var yourDiv = document.getElementById('yourDiv');
+    var ProtVista = require('ProtVista');
+    var instance = new ProtVista({
+       el: yourDiv,
+
+       //This will be **always** added at the end of your data source URL but before the extension
+       uniprotacc: 'P05067',
+
+       //Default sources will be included (even if this option is omitted)
+       defaultSources: true,
+
+       //Your data sources are defined here
+       customDataSource: {
+	     // uniprotacc: 'P05067', 'P05067' 与 'external_' 拼接为 external_P05067.json 文件
+         url: './external_',
+         source: 'myLab',
+         useExtension: true
+       }
+    });
+  }
+</script>
+</body> 
+</html> 
