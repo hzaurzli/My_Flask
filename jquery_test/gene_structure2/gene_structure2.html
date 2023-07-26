@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width = device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-Content-Type-Options" content="nosniff" />
+	<title>Citrus Pan-genome2breeding Database</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+
+	<script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/citrus.base.css">
+</head>
+<body>
+<div id="mainBody" style="margin-top:30px">
+<script type="text/javascript" src="./js/echarts.js"></script>
+
+<div class="container moduleTitle">
+    <h3>Genome Browser</h3>
+</div>
+<div class="container contentTitle">
+    <h5>Species: Citrus sinensis v2.0 | Search word: Cs1g_pb000090</h5>
+</div>
+<div class="container contentBody">
+<script>
+var geneModel=new Array();
+geneModel.push([4767450, 4773425, 0, 'transcript', 'chr1', '+', 'Cs1g_pb000090.1']);
+geneModel.push([4768878, 4768933, 0, 'CDS', 'chr1', '+', 'Cs1g_pb000090.1.cds.1']);
+geneModel.push([4769093, 4769168, 0, 'CDS', 'chr1', '+', 'Cs1g_pb000090.1.cds.2']);
+geneModel.push([4770318, 4770398, 0, 'CDS', 'chr1', '+', 'Cs1g_pb000090.1.cds.3']);
+geneModel.push([4771200, 4771336, 0, 'CDS', 'chr1', '+', 'Cs1g_pb000090.1.cds.4']);
+geneModel.push([4771651, 4771903, 0, 'CDS', 'chr1', '+', 'Cs1g_pb000090.1.cds.5']);
+geneModel.push([4772400, 4772463, 0, 'CDS', 'chr1', '+', 'Cs1g_pb000090.1.cds.6']);
+geneModel.push([4772579, 4773165, 0, 'CDS', 'chr1', '+', 'Cs1g_pb000090.1.cds.7']);
+geneModel.push([4767450, 4767595, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.1']);
+geneModel.push([4768255, 4768736, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.2']);
+geneModel.push([4768852, 4768933, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.3']);
+geneModel.push([4769093, 4769168, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.4']);
+geneModel.push([4770318, 4770398, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.5']);
+geneModel.push([4771200, 4771336, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.6']);
+geneModel.push([4771651, 4771903, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.7']);
+geneModel.push([4772400, 4772463, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.8']);
+geneModel.push([4772579, 4773425, 0, 'exon', 'chr1', '+', 'Cs1g_pb000090.1.exon.9']);
+geneModel.push([4773166, 4773425, 0, 'three_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.1.utr3.1']);
+geneModel.push([4767450, 4767595, 0, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.1.utr5.1']);
+geneModel.push([4768255, 4768736, 0, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.1.utr5.2']);
+geneModel.push([4768852, 4768877, 0, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.1.utr5.3']);
+geneModel.push([4767450, 4773425, 1, 'transcript', 'chr1', '+', 'Cs1g_pb000090.2']);
+geneModel.push([4768315, 4768696, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.1']);
+geneModel.push([4768852, 4768933, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.2']);
+geneModel.push([4769093, 4769168, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.3']);
+geneModel.push([4770318, 4770398, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.4']);
+geneModel.push([4771200, 4771336, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.5']);
+geneModel.push([4771651, 4771903, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.6']);
+geneModel.push([4772400, 4772463, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.7']);
+geneModel.push([4772579, 4773165, 1, 'CDS', 'chr1', '+', 'Cs1g_pb000090.2.cds.8']);
+geneModel.push([4767450, 4767595, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.1']);
+geneModel.push([4768255, 4768696, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.2']);
+geneModel.push([4768852, 4768933, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.3']);
+geneModel.push([4769093, 4769168, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.4']);
+geneModel.push([4770318, 4770398, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.5']);
+geneModel.push([4771200, 4771336, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.6']);
+geneModel.push([4771651, 4771903, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.7']);
+geneModel.push([4772400, 4772463, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.8']);
+geneModel.push([4772579, 4773425, 1, 'exon', 'chr1', '+', 'Cs1g_pb000090.2.exon.9']);
+geneModel.push([4773166, 4773425, 1, 'three_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.2.utr3.1']);
+geneModel.push([4767450, 4767595, 1, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.2.utr5.1']);
+geneModel.push([4768255, 4768314, 1, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.2.utr5.2']);
+geneModel.push([4767450, 4773425, 2, 'transcript', 'chr1', '+', 'Cs1g_pb000090.3']);
+geneModel.push([4768815, 4768933, 2, 'CDS', 'chr1', '+', 'Cs1g_pb000090.3.cds.1']);
+geneModel.push([4769093, 4769168, 2, 'CDS', 'chr1', '+', 'Cs1g_pb000090.3.cds.2']);
+geneModel.push([4770318, 4770398, 2, 'CDS', 'chr1', '+', 'Cs1g_pb000090.3.cds.3']);
+geneModel.push([4771200, 4771336, 2, 'CDS', 'chr1', '+', 'Cs1g_pb000090.3.cds.4']);
+geneModel.push([4771651, 4771903, 2, 'CDS', 'chr1', '+', 'Cs1g_pb000090.3.cds.5']);
+geneModel.push([4772400, 4772463, 2, 'CDS', 'chr1', '+', 'Cs1g_pb000090.3.cds.6']);
+geneModel.push([4772579, 4773165, 2, 'CDS', 'chr1', '+', 'Cs1g_pb000090.3.cds.7']);
+geneModel.push([4767450, 4767595, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.1']);
+geneModel.push([4768255, 4768933, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.2']);
+geneModel.push([4769093, 4769168, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.3']);
+geneModel.push([4770318, 4770398, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.4']);
+geneModel.push([4771200, 4771336, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.5']);
+geneModel.push([4771651, 4771903, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.6']);
+geneModel.push([4772400, 4772463, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.7']);
+geneModel.push([4772579, 4773425, 2, 'exon', 'chr1', '+', 'Cs1g_pb000090.3.exon.8']);
+geneModel.push([4773166, 4773425, 2, 'three_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.3.utr3.1']);
+geneModel.push([4767450, 4767595, 2, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.3.utr5.1']);
+geneModel.push([4768255, 4768814, 2, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.3.utr5.2']);
+geneModel.push([4767660, 4773425, 3, 'transcript', 'chr1', '+', 'Cs1g_pb000090.4']);
+geneModel.push([4768315, 4768696, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.1']);
+geneModel.push([4768852, 4768933, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.2']);
+geneModel.push([4769093, 4769168, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.3']);
+geneModel.push([4770318, 4770398, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.4']);
+geneModel.push([4771200, 4771336, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.5']);
+geneModel.push([4771651, 4771903, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.6']);
+geneModel.push([4772400, 4772463, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.7']);
+geneModel.push([4772579, 4773165, 3, 'CDS', 'chr1', '+', 'Cs1g_pb000090.4.cds.8']);
+geneModel.push([4767660, 4768020, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.1']);
+geneModel.push([4768255, 4768696, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.2']);
+geneModel.push([4768852, 4768933, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.3']);
+geneModel.push([4769093, 4769168, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.4']);
+geneModel.push([4770318, 4770398, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.5']);
+geneModel.push([4771200, 4771336, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.6']);
+geneModel.push([4771651, 4771903, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.7']);
+geneModel.push([4772400, 4772463, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.8']);
+geneModel.push([4772579, 4773425, 3, 'exon', 'chr1', '+', 'Cs1g_pb000090.4.exon.9']);
+geneModel.push([4773166, 4773425, 3, 'three_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.4.utr3.1']);
+geneModel.push([4767660, 4768020, 3, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.4.utr5.1']);
+geneModel.push([4768255, 4768314, 3, 'five_prime_UTR', 'chr1', '+', 'Cs1g_pb000090.4.utr5.2']);
+var transcriptCount=4;
+var start=4767450;
+var end=4773425;
+
+console.log(geneModel);
+</script>
+<div id='figure' class='figure' style='width:1140px;height:300px;'></div>
+<script>
+
+function renderItem(params, api){
+    var categoryIndex = api.value(2);
+    var elementStart =  api.coord([api.value(0), categoryIndex]);
+    var elementEnd = api.coord([api.value(1), categoryIndex]);
+    var elementHeight = api.size([0,1])[1] * 0.8;
+
+    var rectShape = echarts.graphic.clipRectByRect({
+        x: elementStart[0],
+        y: elementStart[1] - elementHeight / 2,
+        width: elementEnd[0] - elementStart[0],
+        height: elementHeight
+    }, {
+        x: params.coordSys.x,
+        y: params.coordSys.y,
+        width: params.coordSys.width,
+        height: params.coordSys.height
+    });
+    if(api.value(3) == 'transcript' || api.value(3) == 'mRNA'){
+        return {
+            type: 'line',
+            shape: {
+                x1: elementStart[0],
+                y1: elementStart[1],
+                x2: elementEnd[0],
+                y2: elementEnd[1]
+            },
+            style: {
+                stroke: '#808080'
+            }
+        };
+    }
+    else if(api.value(3) == 'CDS'){
+        return rectShape && {
+            type: 'rect',
+            transition: ['shape'],
+            shape: rectShape,
+            style: {
+                fill:'#FFB740'
+            }
+        };
+    }
+    else if(api.value(3) == 'three_prime_UTR' || api.value(3) == 'five_prime_UTR'){
+        return rectShape && {
+            type: 'rect',
+            transition: ['shape'],
+            shape: rectShape,
+            style: {
+                fill:'#64C9CF'
+            }
+        };
+    }
+}
+var myChart = echarts.init(document.getElementById('figure'));
+var option = {
+    tooltip: {
+        trigger: 'item'
+    },
+    toolbox: {
+        feature: {
+            restore: {},
+            dataView: {},
+            saveAsImage: {}
+        },
+        right: 30
+    },
+    grid: [
+        {bottom: 80, height: transcriptCount * 25, right: 40, left: 40}
+    ],
+    xAxis: [{
+        type: 'value',
+        name: 'bp',
+        gridIndex: 0,
+        min: start,
+        max: end,
+        minInterval: 1
+    }],
+    yAxis: [{
+        type: 'category',
+        name: 'Gene Structure',
+        gridIndex: 0,
+        show: false
+    }],
+    dataZoom: [{
+        type: 'slider',
+        xAxisIndex: [0],
+        filterMode: 'weakFilter',
+        minValueSpan: 500,
+        show: true
+        },{
+        type: 'inside',
+        xAxisIndex: [0],
+        filterMode: 'weakFilter',
+        minValueSpan: 500,
+    }],
+    series: [{
+        type: 'custom',
+        renderItem: renderItem,
+        clip: true,
+        encode: {x: [0, 1], y: 2},
+        xAxisIndex: 0,
+        yAxisIndex: 0,
+        tooltip: {
+            formatter: function(params) {
+                return params.value[6] + ' ' + params.value[4] + ': ' + params.value[0] + '..' + params.value[1] + '(' + params.value[5] + ')' 
+            }
+        },
+        data: geneModel
+    }]
+};
+myChart.setOption(option);
+</script>   
+                         
+</div>
+
+</div>
+</body>
+</html>
+$("#showEle").change(function(){
+    showEle = $("#showEle option:selected").val();
+    if(showEle=='all'){
+        intronObjs = document.getElementsByClassName("intron");
+        for(var i=0;i<intronObjs.length;i++){
+            intronObjs[i].style.display="";
+        }
+        fiveObjs = document.getElementsByClassName("five_prime_utr");
+        for(var i=0;i<fiveObjs.length;i++){
+            fiveObjs[i].style.display="";
+        }
+        threeObjs = document.getElementsByClassName("three_prime_utr");
+        for(var i=0;i<threeObjs.length;i++){
+            threeObjs[i].style.display="";
+        }
+    }
+    if(showEle=='cdna'){
+        intronObjs = document.getElementsByClassName("intron");
+        for(var i=0;i<intronObjs.length;i++){
+            intronObjs[i].style.display="none";
+        }
+        fiveObjs = document.getElementsByClassName("five_prime_utr");
+        for(var i=0;i<fiveObjs.length;i++){
+            fiveObjs[i].style.display="";
+        }
+        threeObjs = document.getElementsByClassName("three_prime_utr");
+        for(var i=0;i<threeObjs.length;i++){
+            threeObjs[i].style.display="";
+        }
+    }
+    if(showEle=='cds'){
+        intronObjs = document.getElementsByClassName("intron");
+        for(var i=0;i<intronObjs.length;i++){
+            intronObjs[i].style.display="none";
+        }
+        fiveObjs = document.getElementsByClassName("five_prime_utr");
+        for(var i=0;i<fiveObjs.length;i++){
+            fiveObjs[i].style.display="none";
+        }
+        threeObjs = document.getElementsByClassName("three_prime_utr");
+        for(var i=0;i<threeObjs.length;i++){
+            threeObjs[i].style.display="none";
+        }
+    }
+});
+$("#showBGC").click(function(){
+    if($('#showBGC').is(':checked')){
+        fiveObjs = document.getElementsByClassName("five_prime_utr");
+        for(var i=0;i<fiveObjs.length;i++){
+            fiveObjs[i].style.backgroundColor="#64C9CF";
+        }
+        threeObjs = document.getElementsByClassName("three_prime_utr");
+        for(var i=0;i<threeObjs.length;i++){
+            threeObjs[i].style.backgroundColor="#64C9CF";
+        }
+        cdsObjs = document.getElementsByClassName("cds");
+        for(var i=0;i<cdsObjs.length;i++){
+            cdsObjs[i].style.backgroundColor="#FFB740";
+        }
+    }
+    else{
+        spanObjs = document.getElementsByTagName('span');
+        for(var i=0;i<spanObjs.length;i++){
+            spanObjs[i].style.backgroundColor="transparent"; 
+        }
+    }
+});
+</script>

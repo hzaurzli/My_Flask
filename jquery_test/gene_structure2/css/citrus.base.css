@@ -1,0 +1,189 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+#mainBody{
+	position: relative;
+	min-height: 100%;
+	padding-bottom: 170px;
+}
+footer {
+	width: 100%;	
+	height: 170px;
+	position: absolute;
+	bottom: 0;
+}
+div.logoAndTitle {
+	margin-left: 30px;
+	margin-top: 30px;
+}
+#logoImg {
+//	margin-right: 20px;
+}
+#logoTitle {
+//	margin-top: 5px;
+	font-family:Tahoma, Geneva, sans-serif;
+//	font-family:"Comic Sans MS", cursive, sans-serif;
+	font-weight:bold;
+    font-size: 70px;
+	color: #4C4C6D;
+}
+div.jumbotron{
+	background-image:url("/images/background.png");
+	background-size:cover;
+	background-attachment:fixed;
+	position: relative;
+	height: 170px;
+	margin-bottom: 0;
+}
+div.transbox{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background:rgba(255,255,255,0.8)
+}
+ul.nav{
+	font-family:"Arial", Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: 20px;
+	padding: 0;
+	float: center;
+}
+#navBox {
+	width: 80%;
+	position:absolute;
+	bottom: 0;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+a.nav-link{
+	color: #171515d4;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.carousel{
+	width: 600px;
+	margin: auto;
+}
+.carousel-inner{
+	width: 300px;
+	height: 410px;
+	margin: auto;
+}
+.slideImg{
+	margin: auto;
+}
+p.copyright{
+	text-align:center;
+}
+.moduleTitle {
+	margin-top:50px;
+	margin-bottom:50px;
+	font-family:Tahoma, Geneva, sans-serif;
+	text-align:center;
+}
+.contentTitle{
+	font-family:Tahoma, Geneva, sans-serif;
+	margin-top:30px;
+	margin-bottom:20px;
+	font-size:20px;
+	text-align:center;
+}
+.contentBody{
+	margin-top:50px;
+	margin-bottom:50px;
+}
+label{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:20px;
+}
+label.small{
+//	font-family:Arial, Helvetica, sans-serif;
+	font-size:19px;
+}
+.figure{
+	margin-top:50px;
+	margin-bottom:50px;
+}
+p{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 17px;
+}
+.error{
+	color:red;
+}
+#checkboxDiv{
+	border-top-style:solid;
+	border-bottom-style:solid;
+	border-color:#DCDCDC;
+	border-width:1px;
+}
+.bi-question-circle{
+	font-size: 0.8em;
+}
+img.resources {
+	margin: 0 auto;
+}
+div.img {
+	text-align: center;
+	word-wrap: break-word;
+}
+p.resources {
+}
+div.toolIntro {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+div.copyright {
+	text-align: center;
+	word-wrap: break-word;
+}
+h3.cardTitle {
+//	border-radius: 10px;
+//	background: #B8DFD8;
+	border-bottom: 5px solid #ffc107;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: bold;
+	color: #4C4C6D;
+}
+div.cardBody {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#geneFunc_inline_redio{
+	border-style:solid;
+	border-color:#DCDCDC;
+	border-width:1px;
+}
+div.card-body p{
+	word-wrap: break-word;
+	word-break: break-all;
+}
+div.secondTitle{
+	margin-bottom: 20px;
+}
+span.five_prime_utr{
+    background-color:#64C9CF;
+} 
+span.three_prime_utr{
+    background-color:#64C9CF;
+} 
+span.cds{
+    background-color:#FFB740;
+} 
+span.pam{
+    background-color:#D4ECDD;
+} 
+td.publishedGenome{
+    background-color:#f8f9fa;
+}
+/*div.bg-orange{
+    background:rgba(255,165,0,0.1);
+}*/
