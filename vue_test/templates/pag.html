@@ -6,7 +6,7 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 <!-- 引入组件库 -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/element-ui@2.15.3/lib/index.js"></script>
 
     <script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
@@ -61,19 +61,6 @@
           currentPage4: 4
       };
     },
-      {#mounted (){#}
-      {#      axios({#}
-      {#          methods: 'get',#}
-      {#          url:'/json/',#}
-      {#          params: { 'first':'aa' }#}
-      {#      })#}
-      {#          .then(function (response) {#}
-      {#              console.log(response);#}
-      {#          })#}
-      {#          .catch(function (error) { // 请求失败处理#}
-      {#              // console.log(error);#}
-      {#          });#}
-      {#  }#}
  };
 
  axios.interceptors.request.use(function (config) {
