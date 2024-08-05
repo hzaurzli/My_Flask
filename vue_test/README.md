@@ -73,5 +73,41 @@ root 改为待测试html的路径，index 改为待测试的html文件名，注�
 
 双击nginx.exe运行。在浏览器上输入地址：http://localhost:8888/index.html
 
+# 解决flask cor 跨域问题
+```
+from flask import Flask, request, render_template
+from flask_cors import CORS, cross_origin # 解决跨域问题
+
+app = Flask(__name__)
+
+app.jinja_env.variable_start_string = '%%'
+app.jinja_env.variable_end_string = '%%'
+
+@app.route('/')
+@cross_origin()
+def pag():
+    return render_template("pag.html")
+
+
+@app.route('/json/')
+@cross_origin() # 解决跨域报错
+def json():
+    data = request.args.to_dict()
+    # dat = data["data"]
+    print(data)
+    rst = {
+    "name":"网站",
+    "num":3,
+    "sites": [
+        { "name":"Google", "info":[ "Android", "Google 搜索", "Google 翻译" ] },
+        { "name":"Runoob", "info":[ "菜鸟教程", "菜鸟工具", "菜鸟微信" ] },
+        { "name":"Taobao", "info":[ "淘宝", "网购" ] }
+    ]
+}
+    return rst
+```
+
+
+
 
 
