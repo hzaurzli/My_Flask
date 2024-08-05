@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="jquery.min.js"></script>
+  <title>x-spreadsheet</title>
+<link href="xspreadsheet.css" rel="stylesheet"></head>
+<body onload="load()">
+  <div style="position: fixed; right: 0; top: .3em;">
+  </div>
+  <div id="x-spreadsheet-demo"></div>
+  <script>
+    function load(){
+
+      // x_spreadsheet.locale('zh-cn');
+      var xs = x_spreadsheet('#x-spreadsheet-demo', {showToolbar: true, showGrid: true})
+        .loadData([{}]);
+		
+		  xs.change(function(data){
+			var array = {}
+			for (i in data.rows){
+				if( i != 'len'){
+					//console.log(data.rows[i].cells)
+					for (j in data.rows[i].cells){
+						console.log(data.rows[i].cells[j].text)
+						let index = i + '_' + j;
+						console.log(index);
+						array[index] = data.rows[i].cells[j].text
+					}			
+				}
+			}
+		
+			console.log(array)
+			
+			var opt = {"name": array}
+			$.ajax({
+				url:"http://127.0.0.1:5000/greet",
+				data: opt,
+				type: "GET",
+				success:function(result){
+					console.log(result)
+			}})
+		
+		  })
+    
+    }
+  </script>
+  <!--script type="text/javascript" src="https://unpkg.com/x-data-spreadsheet@1.0.20/dist/locale/zh-cn.js"></script-->
+<script type="text/javascript" src="xspreadsheet.js"></script>
+</body>
+</html>
