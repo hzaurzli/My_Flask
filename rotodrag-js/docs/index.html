@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8"/>
+    <title>rotodrag-js: a JavaScript library of one-finger SVG dragging and rotation</title>
+    <link href="docs.css" rel="stylesheet" type="text/css" />
+    <script src="./js/rotodrag.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="content">
+
+      <h1>rotodrag-js</h1>
+      <h2>A JavaScript library for one-finger SVG dragging and rotation</h2>
+
+      <p>Have you ever wanted to manipulate both the location and orientation of an SVG object at the same time? Using only one finger or just your mouse?</p>
+      <p><b>rotodrag-js</b> is a solution. It lets you drag SVG objects contained <i>inside</i> a parent SVG as if they were physical objects on a sheet of ice, such that they rotate around their center of mass as they are pulled one way or another.</p>
+      <p>This is exactly what you might want if you are building a web application for doing jigsaw puzzles, or for placing drawings from Greek mythology on top of their constellations in a picture of a starry sky, or for making animated movies about the lives of triangles and circles.</p>
+
+      <h2>Example: Jigsaw puzzle</h2>
+      
+      <svg class="draggables"
+           xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 900 900"
+           version="1.1"
+           id="svg4601"
+           >
+	<rect x="0" y="0" width="900" height="900" fill="none" stroke="#000000" stroke-width="0.5" />
+        <g class="draggable" id="puzzle1" transform="translate(70,90)" data-dragstyle="xyaxis" data-min-x='1' data-max-x='10000' data-min-y='1' data-max-y='1000'>
+				<g transform="translate(260,280)"><g><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#66c2a5" d="M1.592040838891559e-14,-260A260,260,0,0,1,45.76856922847037,-255.9399110548777L0,0Z">
+				<title>PT30_11:1.38</title></path><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#fc8d62" d="M45.76856922847037,-255.9399110548777A260,260,0,0,1,156.3091436160107,-207.7677829261056L0,0Z">
+				<title>PT30_17:3.65</title></path><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#8da0cb" d="M156.3091436160107,-207.7677829261056A260,260,0,0,1,220.76688873777033,-137.33892688180194L0,0Z">
+				<title>PT30_49:2.88</title></path><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#e78ac3" d="M220.76688873777033,-137.33892688180194A260,260,0,0,1,255.9399110548777,-45.76856922847041L0,0Z">
+				<title>PT34_13:2.96</title></path><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#a6d854" d="M255.9399110548777,-45.76856922847041A260,260,0,0,1,-75.57370930328267,248.77422387004432L0,0Z">
+				<title>PT34_14:15.93</title></path><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#ffd92f" d="M-75.57370930328267,248.77422387004432A260,260,0,0,1,-155.50873792771608,208.3675416856688L0,0Z">
+				<title>PT34_16:2.7</title></path><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#e5c494" d="M-155.50873792771608,208.3675416856688A260,260,0,0,1,-80.34441853748636,-247.27469423673992L0,0Z">
+				<title>PT34_17:17.05</title></path><path class="pie-path-style" fill-opacity="1" stroke="#ffffff" stroke-width="1" stroke-opacity="1" fill="#b3b3b3" d="M-80.34441853748636,-247.27469423673992A260,260,0,0,1,-4.776122516674677e-14,-260L0,0Z">
+				<title>PT34_21:2.45</title></path></g></g></g><g transform="translate(700,200)" text-anchor="start">
+				</g>
+		</g>
+		<g class="draggable" id="puzzle2" transform="translate(170,60)" data-dragstyle="xyaxis" data-min-x='1' data-max-x='10000' data-min-y='1' data-max-y='1000'>
+				<text class="legend-title-text-" font-size="16" fill="#000000" font-weight="bold" text-anchor="middle" font-style="normal" x="0" y="-10" xml:space="preserve"><tspan>ChiPlot</tspan></text>
+				<g transform="translate(0,0)">
+				<g transform="translate(0,0)">
+				<rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#66c2a5" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect>
+				<text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT30_11</text></g>
+				<g transform="translate(0,30)">
+				<rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#fc8d62" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect>
+				<text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT30_17</text></g><g transform="translate(0,60)">
+				<rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#8da0cb" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect>
+				<text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT30_49</text></g>
+				<g transform="translate(0,90)"><rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#e78ac3" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect>
+				<text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT34_13</text></g>
+				<g transform="translate(0,120)"><rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#a6d854" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect>
+				<text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT34_14</text></g><g transform="translate(0,150)">
+				<rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#ffd92f" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect><text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT34_16</text></g>
+				<g transform="translate(0,180)"><rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#e5c494" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect><text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT34_17</text></g>
+				<g transform="translate(0,210)"><rect x="-25" width="25" height="25" class="legend-rect-style-" fill="#b3b3b3" fill-opacity="1" stroke="#000000" stroke-width="0" stroke-opacity="1" rx="2" ry="2"></rect><text class="legend-item-text-" dy="0.3em" y="12.5" font-size="16" fill="#000000" font-weight="normal" text-anchor="start" font-style="normal" x="6" xml:space="preserve">PT34_21</text></g></g></g>
+				</g>
+        </g>
+      </svg>
+  </body>
+  
+</html>
